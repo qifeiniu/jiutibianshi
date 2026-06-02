@@ -1,0 +1,2460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康九体辨识 — UI设计稿</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: { 50:'#ECFDF5',100:'#D1FAE5',200:'#A7F3D0',300:'#6EE7B7',400:'#34D399',500:'#059669',600:'#047857',700:'#065F46' },
+        health: { light:'#ECFDF5', bg:'#F0FDF4', card:'#FFFFFF', accent:'#059669', warn:'#F97316', success:'#10B981', danger:'#EF4444' },
+      },
+      fontFamily: { sans:['Inter','system-ui','sans-serif'] },
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800 antialiased">
+
+<!-- ========== FIXED TOP NAVIGATION ========== -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200" id="topNav">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center h-14 gap-2 overflow-x-auto scrollbar-hide">
+      <span class="text-lg font-bold text-primary-600 whitespace-nowrap mr-4"><i class="fa-solid fa-heartbeat mr-1"></i>健康九体辨识</span>
+      <div class="flex items-center gap-1 text-sm">
+        <span class="text-xs text-gray-400 font-semibold mr-1">患者端</span>
+        <a href="#mod-login" class="nav-link px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-primary-50 hover:text-primary-600 transition-all">登录注册</a>
+        <a href="#mod-home" class="nav-link px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-primary-50 hover:text-primary-600 transition-all">健康档案</a>
+        <a href="#mod-body" class="nav-link px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-primary-50 hover:text-primary-600 transition-all">体脂数据</a>
+        <a href="#mod-constitution" class="nav-link px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-primary-50 hover:text-primary-600 transition-all">九体辨识</a>
+        <a href="#mod-report" class="nav-link px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-primary-50 hover:text-primary-600 transition-all">健康报告</a>
+        <a href="#mod-profile" class="nav-link px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-primary-50 hover:text-primary-600 transition-all">个人中心</a>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-20 pb-16 max-w-7xl mx-auto px-4">
+
+<!-- ################################################################ -->
+<!-- ================ 模块1：登录注册 ================ -->
+<!-- ################################################################ -->
+<section id="mod-login" class="mb-16 scroll-mt-20">
+  <div class="mb-6">
+    <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i class="fa-solid fa-right-to-bracket text-primary-500"></i>1. 登录注册模块</h2>
+    <p class="text-sm text-gray-500 mt-1">患者端微信小程序登录、注册实名认证流程</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+    <!-- 1.1 登录页 -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-white rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-800 text-xs font-medium">
+          <span>10:12</span>
+          <div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-battery-full"></i></div>
+        </div>
+        <div class="px-8 pt-12">
+          <div class="flex flex-col items-center mb-10">
+            <div class="w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-emerald-200">
+              <i class="fa-solid fa-heartbeat text-4xl text-white"></i>
+            </div>
+            <h2 class="text-xl font-bold text-gray-900">欢迎使用健康九体辨识</h2>
+            <p class="text-sm text-gray-400 mt-1">登录后开启您的健康管理之旅</p>
+          </div>
+          <!-- Phone Input -->
+          <div class="mb-4">
+            <label class="text-xs text-gray-500 mb-1 block">手机号</label>
+            <div class="flex items-center bg-gray-50 rounded-lg px-4 h-12 border border-gray-200 focus-within:border-emerald-400 transition-colors">
+              <span class="text-sm text-gray-500 mr-2">+86</span>
+              <span class="w-px h-5 bg-gray-300 mr-3"></span>
+              <span class="text-sm text-gray-800">138 **** 5678</span>
+            </div>
+          </div>
+          <!-- Verification Code -->
+          <div class="mb-6">
+            <label class="text-xs text-gray-500 mb-1 block">验证码</label>
+            <div class="flex gap-3">
+              <div class="flex-1 flex items-center bg-gray-50 rounded-lg px-4 h-12 border border-gray-200">
+                <span class="text-sm text-gray-400">请输入验证码</span>
+              </div>
+              <button class="px-4 h-12 bg-primary-500 text-white text-sm font-medium rounded-lg whitespace-nowrap min-w-[100px]">获取验证码</button>
+            </div>
+          </div>
+          <!-- Login Button -->
+          <button class="w-full h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold rounded-lg shadow-lg shadow-emerald-200 text-base">登 录</button>
+          <!-- Divider -->
+          <div class="flex items-center gap-4 my-8">
+            <div class="flex-1 h-px bg-gray-200"></div>
+            <span class="text-xs text-gray-400">其他登录方式</span>
+            <div class="flex-1 h-px bg-gray-200"></div>
+          </div>
+          <!-- WeChat Login -->
+          <div class="flex justify-center">
+            <button class="flex flex-col items-center gap-2">
+              <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-md">
+                <i class="fa-brands fa-weixin text-white text-xl"></i>
+              </div>
+              <span class="text-xs text-gray-500">微信登录</span>
+            </button>
+          </div>
+          <!-- Bottom -->
+          <div class="absolute bottom-10 left-8 right-8">
+            <div class="flex items-start gap-2 mb-4">
+              <div class="w-4 h-4 rounded border-2 border-emerald-500 bg-emerald-500 flex items-center justify-center mt-0.5 shrink-0">
+                <i class="fa-solid fa-check text-white text-[8px]"></i>
+              </div>
+              <p class="text-xs text-gray-400">登录即表示您已阅读并同意<span class="text-emerald-500">《用户协议》</span>和<span class="text-emerald-500">《隐私政策》</span></p>
+            </div>
+            <p class="text-center text-xs text-gray-300">还没有账号？<span class="text-emerald-500 font-medium">立即注册</span></p>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">1.1 登录页</p>
+    </div>
+
+    <!-- 1.3 注册页（实名认证） -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-white rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-800 text-xs font-medium">
+          <span>10:12</span>
+          <div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-battery-full"></i></div>
+        </div>
+        <!-- Nav Bar -->
+        <div class="flex items-center px-4 h-11 border-b border-gray-100">
+          <button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-chevron-left text-gray-600"></i></button>
+          <span class="flex-1 text-center font-semibold text-base text-gray-900">注册 · 实名认证</span>
+          <div class="w-11"></div>
+        </div>
+        <div class="px-6 pt-6">
+          <div class="bg-emerald-50 rounded-xl p-4 mb-6 flex items-start gap-3">
+            <i class="fa-solid fa-shield-halved text-emerald-500 mt-0.5"></i>
+            <div>
+              <p class="text-sm font-medium text-emerald-700">实名认证说明</p>
+              <p class="text-xs text-emerald-500 mt-1">为确保健康数据准确关联，需进行实名认证。您的信息将受到严格保护。</p>
+            </div>
+          </div>
+          <!-- Form Fields -->
+          <div class="space-y-4">
+            <div>
+              <label class="text-xs text-gray-500 mb-1.5 block">姓名 <span class="text-red-400">*</span></label>
+              <div class="flex items-center bg-gray-50 rounded-lg px-4 h-12 border border-gray-200">
+                <i class="fa-solid fa-user text-gray-400 mr-3 text-sm"></i>
+                <span class="text-sm text-gray-800">张晓明</span>
+              </div>
+            </div>
+            <div>
+              <label class="text-xs text-gray-500 mb-1.5 block">性别 <span class="text-red-400">*</span></label>
+              <div class="flex gap-3">
+                <div class="flex-1 h-12 bg-emerald-50 border-2 border-emerald-400 rounded-lg flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-mars text-emerald-500"></i><span class="text-sm font-medium text-emerald-600">男</span>
+                </div>
+                <div class="flex-1 h-12 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-venus text-gray-400"></i><span class="text-sm text-gray-500">女</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label class="text-xs text-gray-500 mb-1.5 block">年龄 <span class="text-red-400">*</span></label>
+              <div class="flex items-center bg-gray-50 rounded-lg px-4 h-12 border border-gray-200">
+                <i class="fa-solid fa-calendar text-gray-400 mr-3 text-sm"></i>
+                <span class="text-sm text-gray-800">45</span>
+                <span class="text-sm text-gray-400 ml-1">岁</span>
+              </div>
+            </div>
+            <div>
+              <label class="text-xs text-gray-500 mb-1.5 block">身份证号 <span class="text-red-400">*</span></label>
+              <div class="flex items-center bg-gray-50 rounded-lg px-4 h-12 border border-gray-200">
+                <i class="fa-solid fa-id-card text-gray-400 mr-3 text-sm"></i>
+                <span class="text-sm text-gray-800">110105198001****</span>
+              </div>
+            </div>
+            <div>
+              <label class="text-xs text-gray-500 mb-1.5 block">手机号 <span class="text-red-400">*</span></label>
+              <div class="flex items-center bg-gray-50 rounded-lg px-4 h-12 border border-gray-200">
+                <i class="fa-solid fa-phone text-gray-400 mr-3 text-sm"></i>
+                <span class="text-sm text-gray-800">138****5678</span>
+                <span class="ml-auto text-xs text-emerald-500">已验证</span>
+              </div>
+            </div>
+          </div>
+          <!-- Submit -->
+          <button class="w-full h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold rounded-lg shadow-lg shadow-emerald-200 text-base mt-8">完成注册</button>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">1.2 注册页（实名认证）</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ################################################################ -->
+<!-- ================ 模块2：首页/健康档案 ================ -->
+<!-- ################################################################ -->
+<section id="mod-home" class="mb-16 scroll-mt-20">
+  <div class="mb-6">
+    <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i class="fa-solid fa-house-medical text-primary-500"></i>2. 首页 / 健康档案</h2>
+    <p class="text-sm text-gray-500 mt-1">健康指标展示、异常指标提醒、数据趋势查看</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- 2.1 健康档案 — 基础指标 -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="absolute top-0 left-0 right-0 h-[380px] bg-gradient-to-b from-emerald-400 via-emerald-300 to-emerald-100/30 pointer-events-none" style="z-index:0;"></div>
+        <div class="relative" style="z-index:1;">
+        <div class="flex justify-between items-center px-8 pt-3 text-white text-xs font-medium">
+          <span>15:39</span>
+          <div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div>
+        </div>
+        <!-- App Name + Mini Program Capsule -->
+        <div class="flex items-center justify-between px-5 pt-3 pb-2">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-white/25 rounded-lg flex items-center justify-center backdrop-blur-sm">
+              <i class="fa-solid fa-heartbeat text-white text-base"></i>
+            </div>
+            <h1 class="text-lg font-bold text-white" style="text-shadow: 0 1px 4px rgba(0,0,0,0.2); letter-spacing: 0.05em;">健康九体辨识</h1>
+          </div>
+          <div class="flex items-center h-[32px] bg-black/15 backdrop-blur-sm rounded-full border border-white/30" style="padding: 0 2px;">
+            <button class="w-[34px] h-[28px] flex items-center justify-center">
+              <svg width="18" height="4" viewBox="0 0 18 4" fill="none"><circle cx="2" cy="2" r="1.8" fill="white" opacity="0.9"/><circle cx="9" cy="2" r="1.8" fill="white" opacity="0.9"/><circle cx="16" cy="2" r="1.8" fill="white" opacity="0.9"/></svg>
+            </button>
+            <div class="w-px h-[18px] bg-white/30"></div>
+            <button class="w-[34px] h-[28px] flex items-center justify-center">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="2.5" y1="2.5" x2="9.5" y2="9.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/><line x1="9.5" y1="2.5" x2="2.5" y2="9.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/></svg>
+            </button>
+          </div>
+        </div>
+        <!-- Profile Info -->
+        <div class="mx-5 flex items-end justify-between gap-6 pt-1 pb-0 mb-0">
+          <div class="shrink-0 w-[120px] h-[128px] flex items-center justify-center pointer-events-none">
+            <img src="logo.png" alt="医院logo" class="w-full h-full object-contain object-center" style="filter: drop-shadow(0 4px 16px rgba(0,0,0,0.1));">
+          </div>
+          <div class="flex-1 min-w-0 flex flex-col items-start text-left gap-2.5 pb-0.5">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl font-bold text-gray-900 leading-tight">本人</span>
+              <i class="fa-solid fa-pen-to-square text-gray-500 text-sm cursor-pointer"></i>
+            </div>
+            <p class="text-sm text-gray-600 leading-snug">男  45岁</p>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-sm text-gray-600">BMI <i class="fa-solid fa-circle-question text-gray-400 text-[10px]"></i>：</span>
+              <span class="text-base font-bold text-gray-900">24.8</span>
+              <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded font-medium">正常</span>
+            </div>
+          </div>
+        </div>
+        <div class="mx-5 mt-2 mb-3 bg-white/60 backdrop-blur-sm rounded-xl px-3 py-2.5 flex items-start gap-2 relative" style="z-index:2;">
+          <div class="w-6 h-6 bg-orange-400 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-triangle-exclamation text-white text-[10px]"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-bold text-gray-800 leading-tight text-left">健康问题 <span class="text-orange-500">1</span> 项</p>
+            <p class="text-xs text-gray-500 mt-0.5 flex items-center gap-0.5">查看健康计划 <i class="fa-solid fa-chevron-right text-[8px] text-gray-400"></i></p>
+          </div>
+        </div>
+
+        <!-- Notification Card -->
+        <div class="mx-5 bg-white rounded-2xl shadow-sm p-4 mb-3 flex items-center gap-3 relative" style="z-index:2;">
+          <div class="relative shrink-0">
+            <div class="w-11 h-11 bg-emerald-50 rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-file-medical text-emerald-500 text-lg"></i>
+            </div>
+            <div class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+              <span class="text-white text-[8px] font-bold">1</span>
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm text-gray-800 font-semibold">您有一份新的健康报告</p>
+            <p class="text-xs text-gray-400">2026-03-28 健康体检报告已生成</p>
+          </div>
+          <i class="fa-solid fa-chevron-right text-gray-300 text-xs shrink-0"></i>
+        </div>
+
+        <!-- Tab Bar -->
+        <div class="mx-5 mb-3">
+          <div class="flex items-center justify-between bg-white rounded-t-2xl px-2 pt-3 pb-0">
+            <button class="flex-1 flex flex-col items-center gap-1.5 pb-2 relative">
+              <span class="text-[15px] font-bold text-gray-900">基础指标</span>
+              <div class="w-5 h-[3px] rounded-full bg-emerald-500"></div>
+            </button>
+            <button class="flex-1 flex flex-col items-center gap-1.5 pb-2 relative">
+              <span class="text-[15px] font-normal text-gray-400">体成分指标</span>
+              <div class="w-5 h-[3px] rounded-full bg-transparent"></div>
+            </button>
+            <button class="flex-1 flex flex-col items-center gap-1.5 pb-2 relative">
+              <span class="text-[15px] font-normal text-gray-400">专项指标</span>
+              <div class="w-5 h-[3px] rounded-full bg-transparent"></div>
+            </button>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="bg-white rounded-b-2xl rounded-t-none p-4 shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <p class="text-sm font-bold text-gray-900">基础指标</p>
+              <span class="bg-emerald-50 text-emerald-500 text-[10px] px-2 py-0.5 rounded">最新数据 · 2026-03-28</span>
+            </div>
+            <!-- BMI -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">BMI 体质指数</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-gray-900">24.8</span>
+                    <span class="text-xs text-gray-400">kg/m²</span>
+                    <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded ml-1">正常</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：18.5~24.9</p>
+                </div>
+                <div class="w-20 h-10">
+                  <svg viewBox="0 0 80 30" class="w-full h-full"><polyline fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" points="0,20 10,18 20,22 30,15 40,17 50,12 60,14 70,10 80,13"/></svg>
+                </div>
+              </div>
+            </div>
+            <!-- Blood Pressure -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">血压</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-red-500">145</span>
+                    <span class="text-sm text-gray-400">/</span>
+                    <span class="text-lg font-bold text-gray-700">92</span>
+                    <span class="text-xs text-gray-400">mmHg</span>
+                    <span class="bg-red-100 text-red-500 text-[10px] px-1.5 py-0.5 rounded ml-1">偏高 ↑</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：90~140/60~90</p>
+                </div>
+                <div class="w-20 h-10">
+                  <svg viewBox="0 0 80 30" class="w-full h-full"><polyline fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" points="0,15 10,12 20,18 30,10 40,20 50,8 60,15 70,12 80,10"/></svg>
+                </div>
+              </div>
+            </div>
+            <!-- Blood Oxygen -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">血氧饱和度</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-gray-900">98</span>
+                    <span class="text-xs text-gray-400">%</span>
+                    <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded ml-1">正常</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：95%~100%</p>
+                </div>
+                <div class="w-20 h-10">
+                  <svg viewBox="0 0 80 30" class="w-full h-full"><polyline fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" points="0,12 10,14 20,10 30,13 40,11 50,12 60,10 70,11 80,10"/></svg>
+                </div>
+              </div>
+            </div>
+            <!-- Heart Rate -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">心率</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-gray-900">72</span>
+                    <span class="text-xs text-gray-400">次/分</span>
+                    <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded ml-1">正常</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：60~100次/分</p>
+                </div>
+                <div class="w-20 h-10">
+                  <svg viewBox="0 0 80 30" class="w-full h-full"><polyline fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" points="0,18 10,15 20,20 30,12 40,16 50,14 60,13 70,15 80,12"/></svg>
+                </div>
+              </div>
+            </div>
+            <!-- Body Temperature -->
+            <div class="bg-gray-50 rounded-lg p-3">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">体温</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-gray-900">36.5</span>
+                    <span class="text-xs text-gray-400">°C</span>
+                    <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded ml-1">正常</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：36.1~37.0°C</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Entry -->
+        <div class="mx-5 grid grid-cols-3 gap-3 pb-20">
+          <div class="bg-white rounded-xl p-3 shadow-sm text-center">
+            <div class="w-10 h-10 mx-auto bg-emerald-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-weight-scale text-emerald-500"></i></div>
+            <p class="text-xs text-gray-600">体脂数据</p>
+          </div>
+          <div class="bg-white rounded-xl p-3 shadow-sm text-center">
+            <div class="w-10 h-10 mx-auto bg-purple-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-yin-yang text-purple-500"></i></div>
+            <p class="text-xs text-gray-600">体质辨识</p>
+          </div>
+          <div class="bg-white rounded-xl p-3 shadow-sm text-center">
+            <div class="w-10 h-10 mx-auto bg-green-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-file-medical text-green-500"></i></div>
+            <p class="text-xs text-gray-600">健康报告</p>
+          </div>
+        </div>
+        </div>
+        <!-- Bottom Tab Bar -->
+        <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-4 pb-6 pt-2" style="z-index:10;">
+          <div class="flex justify-around">
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-house text-emerald-500 text-lg"></i><span class="text-[10px] text-emerald-500 font-medium">首页</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-clipboard-list text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">记录</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-stethoscope text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">辨识</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-user text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">我的</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">2.1 健康档案 — 基础指标</p>
+    </div>
+
+    <!-- 2.2 健康档案 — 体成分指标 -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="absolute top-0 left-0 right-0 h-[380px] bg-gradient-to-b from-emerald-400 via-emerald-300 to-emerald-100/30 pointer-events-none" style="z-index:0;"></div>
+        <div class="relative" style="z-index:1;">
+        <div class="flex justify-between items-center px-8 pt-3 text-white text-xs font-medium">
+          <span>15:39</span>
+          <div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div>
+        </div>
+        <!-- App Name + Mini Program Capsule -->
+        <div class="flex items-center justify-between px-5 pt-3 pb-2">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-white/25 rounded-lg flex items-center justify-center backdrop-blur-sm">
+              <i class="fa-solid fa-heartbeat text-white text-base"></i>
+            </div>
+            <h1 class="text-lg font-bold text-white" style="text-shadow: 0 1px 4px rgba(0,0,0,0.2); letter-spacing: 0.05em;">健康九体辨识</h1>
+          </div>
+          <div class="flex items-center h-[32px] bg-black/15 backdrop-blur-sm rounded-full border border-white/30" style="padding: 0 2px;">
+            <button class="w-[34px] h-[28px] flex items-center justify-center">
+              <svg width="18" height="4" viewBox="0 0 18 4" fill="none"><circle cx="2" cy="2" r="1.8" fill="white" opacity="0.9"/><circle cx="9" cy="2" r="1.8" fill="white" opacity="0.9"/><circle cx="16" cy="2" r="1.8" fill="white" opacity="0.9"/></svg>
+            </button>
+            <div class="w-px h-[18px] bg-white/30"></div>
+            <button class="w-[34px] h-[28px] flex items-center justify-center">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="2.5" y1="2.5" x2="9.5" y2="9.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/><line x1="9.5" y1="2.5" x2="2.5" y2="9.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/></svg>
+            </button>
+          </div>
+        </div>
+        <!-- Profile Info -->
+        <div class="mx-5 flex items-end justify-between gap-6 pt-1 pb-0 mb-0">
+          <div class="shrink-0 w-[120px] h-[128px] flex items-center justify-center pointer-events-none">
+            <img src="logo.png" alt="医院logo" class="w-full h-full object-contain object-center" style="filter: drop-shadow(0 4px 16px rgba(0,0,0,0.1));">
+          </div>
+          <div class="flex-1 min-w-0 flex flex-col items-start text-left gap-2.5 pb-0.5">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl font-bold text-gray-900 leading-tight">本人</span>
+              <i class="fa-solid fa-pen-to-square text-gray-500 text-sm cursor-pointer"></i>
+            </div>
+            <p class="text-sm text-gray-600 leading-snug">男  45岁</p>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-sm text-gray-600">BMI <i class="fa-solid fa-circle-question text-gray-400 text-[10px]"></i>：</span>
+              <span class="text-base font-bold text-gray-900">24.8</span>
+              <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded font-medium">正常</span>
+            </div>
+          </div>
+        </div>
+        <div class="mx-5 mt-2 mb-3 bg-white/60 backdrop-blur-sm rounded-xl px-3 py-2.5 flex items-start gap-2 relative" style="z-index:2;">
+          <div class="w-6 h-6 bg-orange-400 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-triangle-exclamation text-white text-[10px]"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-bold text-gray-800 leading-tight">健康问题 <span class="text-orange-500">1</span> 项</p>
+            <p class="text-xs text-gray-500 mt-0.5 flex items-center gap-0.5">查看健康计划 <i class="fa-solid fa-chevron-right text-[8px] text-gray-400"></i></p>
+          </div>
+        </div>
+
+        <!-- Notification Card -->
+        <div class="mx-5 bg-white rounded-2xl shadow-sm p-4 mb-3 flex items-center gap-3 relative" style="z-index:2;">
+          <div class="relative shrink-0">
+            <div class="w-11 h-11 bg-emerald-50 rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-file-medical text-emerald-500 text-lg"></i>
+            </div>
+            <div class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+              <span class="text-white text-[8px] font-bold">1</span>
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm text-gray-800 font-semibold">您有一份新的健康报告</p>
+            <p class="text-xs text-gray-400">2026-03-28 健康体检报告已生成</p>
+          </div>
+          <i class="fa-solid fa-chevron-right text-gray-300 text-xs shrink-0"></i>
+        </div>
+
+        <!-- Tab Bar -->
+        <div class="mx-5 mb-3">
+          <div class="flex items-center justify-between bg-white rounded-t-2xl px-2 pt-3 pb-0">
+            <button class="flex-1 flex flex-col items-center gap-1.5 pb-2 relative">
+              <span class="text-[15px] font-normal text-gray-400">基础指标</span>
+              <div class="w-5 h-[3px] rounded-full bg-transparent"></div>
+            </button>
+            <button class="flex-1 flex flex-col items-center gap-1.5 pb-2 relative">
+              <span class="text-[15px] font-bold text-gray-900">体成分指标</span>
+              <div class="w-5 h-[3px] rounded-full bg-emerald-500"></div>
+            </button>
+            <button class="flex-1 flex flex-col items-center gap-1.5 pb-2 relative">
+              <span class="text-[15px] font-normal text-gray-400">专项指标</span>
+              <div class="w-5 h-[3px] rounded-full bg-transparent"></div>
+            </button>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="bg-white rounded-b-2xl rounded-t-none p-4 shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <p class="text-sm font-bold text-gray-900">体成分指标</p>
+              <span class="bg-emerald-50 text-emerald-500 text-[10px] px-2 py-0.5 rounded">最新数据 · 2026-03-28</span>
+            </div>
+            <!-- Body Fat Rate -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">脂肪率</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-gray-900">22.1</span>
+                    <span class="text-xs text-gray-400">%</span>
+                    <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded ml-1">正常</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：10%~20%</p>
+                </div>
+                <div class="w-20 h-10">
+                  <svg viewBox="0 0 80 30" class="w-full h-full"><polyline fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" points="0,18 10,20 20,16 30,19 40,15 50,17 60,14 70,16 80,15"/></svg>
+                </div>
+              </div>
+            </div>
+            <!-- Muscle Mass -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">肌肉量</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-gray-900">48.2</span>
+                    <span class="text-xs text-gray-400">kg</span>
+                    <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded ml-1">正常</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：40~55kg</p>
+                </div>
+                <div class="w-20 h-10">
+                  <svg viewBox="0 0 80 30" class="w-full h-full"><polyline fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" points="0,20 10,17 20,19 30,15 40,16 50,14 60,15 70,13 80,14"/></svg>
+                </div>
+              </div>
+            </div>
+            <!-- Basal Metabolism -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">基础代谢</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-gray-900">1680</span>
+                    <span class="text-xs text-gray-400">kcal</span>
+                    <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded ml-1">正常</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：1500~1800kcal</p>
+                </div>
+              </div>
+            </div>
+            <!-- Body Water -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">体水分量</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-gray-900">41.8</span>
+                    <span class="text-xs text-gray-400">L</span>
+                    <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded ml-1">正常</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：55%~65%</p>
+                </div>
+              </div>
+            </div>
+            <!-- Bone Salt -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">骨盐</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-gray-900">3.1</span>
+                    <span class="text-xs text-gray-400">kg</span>
+                    <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded ml-1">正常</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：2.5~3.5kg</p>
+                </div>
+              </div>
+            </div>
+            <!-- Protein Rate -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">蛋白质率</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-gray-900">17.5</span>
+                    <span class="text-xs text-gray-400">%</span>
+                    <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded ml-1">正常</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：16%~20%</p>
+                </div>
+              </div>
+            </div>
+            <!-- Waist Circumference -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">腰围</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-gray-900">85</span>
+                    <span class="text-xs text-gray-400">cm</span>
+                    <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded ml-1">正常</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：男&lt;90cm / 女&lt;85cm</p>
+                </div>
+                <div class="w-20 h-10">
+                  <svg viewBox="0 0 80 30" class="w-full h-full"><polyline fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" points="0,16 10,15 20,17 30,14 40,16 50,15 60,14 70,15 80,14"/></svg>
+                </div>
+              </div>
+            </div>
+            <!-- Hip Circumference -->
+            <div class="bg-gray-50 rounded-lg p-3">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">臀围</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-gray-900">96</span>
+                    <span class="text-xs text-gray-400">cm</span>
+                    <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded ml-1">正常</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：男90~100cm / 女86~100cm</p>
+                </div>
+                <div class="w-20 h-10">
+                  <svg viewBox="0 0 80 30" class="w-full h-full"><polyline fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" points="0,18 10,16 20,17 30,15 40,16 50,14 60,15 70,14 80,15"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Entry -->
+        <div class="mx-5 grid grid-cols-3 gap-3 pb-20">
+          <div class="bg-white rounded-xl p-3 shadow-sm text-center">
+            <div class="w-10 h-10 mx-auto bg-emerald-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-weight-scale text-emerald-500"></i></div>
+            <p class="text-xs text-gray-600">体脂数据</p>
+          </div>
+          <div class="bg-white rounded-xl p-3 shadow-sm text-center">
+            <div class="w-10 h-10 mx-auto bg-purple-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-yin-yang text-purple-500"></i></div>
+            <p class="text-xs text-gray-600">体质辨识</p>
+          </div>
+          <div class="bg-white rounded-xl p-3 shadow-sm text-center">
+            <div class="w-10 h-10 mx-auto bg-green-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-file-medical text-green-500"></i></div>
+            <p class="text-xs text-gray-600">健康报告</p>
+          </div>
+        </div>
+        </div>
+        <!-- Bottom Tab Bar -->
+        <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-4 pb-6 pt-2" style="z-index:10;">
+          <div class="flex justify-around">
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-house text-emerald-500 text-lg"></i><span class="text-[10px] text-emerald-500 font-medium">首页</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-clipboard-list text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">记录</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-stethoscope text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">辨识</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-user text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">我的</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">2.2 健康档案 — 体成分指标</p>
+    </div>
+
+    <!-- 2.3 健康档案 — 专项指标 -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="absolute top-0 left-0 right-0 h-[380px] bg-gradient-to-b from-emerald-400 via-emerald-300 to-emerald-100/30 pointer-events-none" style="z-index:0;"></div>
+        <div class="relative" style="z-index:1;">
+        <div class="flex justify-between items-center px-8 pt-3 text-white text-xs font-medium">
+          <span>15:39</span>
+          <div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div>
+        </div>
+        <!-- App Name + Mini Program Capsule -->
+        <div class="flex items-center justify-between px-5 pt-3 pb-2">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-white/25 rounded-lg flex items-center justify-center backdrop-blur-sm">
+              <i class="fa-solid fa-heartbeat text-white text-base"></i>
+            </div>
+            <h1 class="text-lg font-bold text-white" style="text-shadow: 0 1px 4px rgba(0,0,0,0.2); letter-spacing: 0.05em;">健康九体辨识</h1>
+          </div>
+          <div class="flex items-center h-[32px] bg-black/15 backdrop-blur-sm rounded-full border border-white/30" style="padding: 0 2px;">
+            <button class="w-[34px] h-[28px] flex items-center justify-center">
+              <svg width="18" height="4" viewBox="0 0 18 4" fill="none"><circle cx="2" cy="2" r="1.8" fill="white" opacity="0.9"/><circle cx="9" cy="2" r="1.8" fill="white" opacity="0.9"/><circle cx="16" cy="2" r="1.8" fill="white" opacity="0.9"/></svg>
+            </button>
+            <div class="w-px h-[18px] bg-white/30"></div>
+            <button class="w-[34px] h-[28px] flex items-center justify-center">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="2.5" y1="2.5" x2="9.5" y2="9.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/><line x1="9.5" y1="2.5" x2="2.5" y2="9.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/></svg>
+            </button>
+          </div>
+        </div>
+        <!-- Profile Info -->
+        <div class="mx-5 flex items-end justify-between gap-6 pt-1 pb-0 mb-0">
+          <div class="shrink-0 w-[120px] h-[128px] flex items-center justify-center pointer-events-none">
+            <img src="logo.png" alt="医院logo" class="w-full h-full object-contain object-center" style="filter: drop-shadow(0 4px 16px rgba(0,0,0,0.1));">
+          </div>
+          <div class="flex-1 min-w-0 flex flex-col items-start text-left gap-2.5 pb-0.5">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl font-bold text-gray-900 leading-tight">本人</span>
+              <i class="fa-solid fa-pen-to-square text-gray-500 text-sm cursor-pointer"></i>
+            </div>
+            <p class="text-sm text-gray-600 leading-snug">男  45岁</p>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-sm text-gray-600">BMI <i class="fa-solid fa-circle-question text-gray-400 text-[10px]"></i>：</span>
+              <span class="text-base font-bold text-gray-900">24.8</span>
+              <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded font-medium">正常</span>
+            </div>
+          </div>
+        </div>
+        <div class="mx-5 mt-2 mb-3 bg-white/60 backdrop-blur-sm rounded-xl px-3 py-2.5 flex items-start gap-2 relative" style="z-index:2;">
+          <div class="w-6 h-6 bg-orange-400 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-triangle-exclamation text-white text-[10px]"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-bold text-gray-800 leading-tight">健康问题 <span class="text-orange-500">1</span> 项</p>
+            <p class="text-xs text-gray-500 mt-0.5 flex items-center gap-0.5">查看健康计划 <i class="fa-solid fa-chevron-right text-[8px] text-gray-400"></i></p>
+          </div>
+        </div>
+
+        <!-- Notification Card -->
+        <div class="mx-5 bg-white rounded-2xl shadow-sm p-4 mb-3 flex items-center gap-3 relative" style="z-index:2;">
+          <div class="relative shrink-0">
+            <div class="w-11 h-11 bg-emerald-50 rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-file-medical text-emerald-500 text-lg"></i>
+            </div>
+            <div class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+              <span class="text-white text-[8px] font-bold">1</span>
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm text-gray-800 font-semibold">您有一份新的健康报告</p>
+            <p class="text-xs text-gray-400">2026-03-28 健康体检报告已生成</p>
+          </div>
+          <i class="fa-solid fa-chevron-right text-gray-300 text-xs shrink-0"></i>
+        </div>
+
+        <!-- Tab Bar -->
+        <div class="mx-5 mb-3">
+          <div class="flex items-center justify-between bg-white rounded-t-2xl px-2 pt-3 pb-0">
+            <button class="flex-1 flex flex-col items-center gap-1.5 pb-2 relative">
+              <span class="text-[15px] font-normal text-gray-400">基础指标</span>
+              <div class="w-5 h-[3px] rounded-full bg-transparent"></div>
+            </button>
+            <button class="flex-1 flex flex-col items-center gap-1.5 pb-2 relative">
+              <span class="text-[15px] font-normal text-gray-400">体成分指标</span>
+              <div class="w-5 h-[3px] rounded-full bg-transparent"></div>
+            </button>
+            <button class="flex-1 flex flex-col items-center gap-1.5 pb-2 relative">
+              <span class="text-[15px] font-bold text-gray-900">专项指标</span>
+              <div class="w-5 h-[3px] rounded-full bg-emerald-500"></div>
+            </button>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="bg-white rounded-b-2xl rounded-t-none p-4 shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <p class="text-sm font-bold text-gray-900">专项指标</p>
+              <span class="bg-emerald-50 text-emerald-500 text-[10px] px-2 py-0.5 rounded">最新数据 · 2026-03-28</span>
+            </div>
+            <!-- Total Cholesterol -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">总胆固醇</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-gray-900">5.2</span>
+                    <span class="text-xs text-gray-400">mmol/L</span>
+                    <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded ml-1">正常</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：&lt;5.2mmol/L</p>
+                </div>
+              </div>
+            </div>
+            <!-- Triglycerides -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2 border-l-2 border-red-400">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">甘油三酯</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-red-500">2.8</span>
+                    <span class="text-xs text-gray-400">mmol/L</span>
+                    <span class="bg-red-100 text-red-500 text-[10px] px-1.5 py-0.5 rounded ml-1">偏高 ↑</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：&lt;1.7mmol/L</p>
+                </div>
+                <div class="w-20 h-10">
+                  <svg viewBox="0 0 80 30" class="w-full h-full"><polyline fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" points="0,20 10,18 20,22 30,14 40,18 50,10 60,15 70,8 80,10"/></svg>
+                </div>
+              </div>
+            </div>
+            <!-- Hemoglobin -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2 border-l-2 border-orange-400">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">血红蛋白</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-orange-500">128</span>
+                    <span class="text-xs text-gray-400">g/L</span>
+                    <span class="bg-orange-100 text-orange-500 text-[10px] px-1.5 py-0.5 rounded ml-1">偏低 ↓</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：130~175g/L</p>
+                </div>
+                <div class="w-20 h-10">
+                  <svg viewBox="0 0 80 30" class="w-full h-full"><polyline fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" points="0,10 10,12 20,14 30,13 40,16 50,18 60,17 70,20 80,19"/></svg>
+                </div>
+              </div>
+            </div>
+            <!-- Urine PH -->
+            <div class="bg-gray-50 rounded-lg p-3 mb-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">尿液PH值</p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-gray-900">6.5</span>
+                    <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded ml-1">正常</span>
+                  </div>
+                  <p class="text-[10px] text-gray-400 mt-1">参考范围：4.5~8.0</p>
+                </div>
+              </div>
+            </div>
+            <!-- ECG -->
+            <div class="bg-gray-50 rounded-lg p-3">
+              <div>
+                <p class="text-xs text-gray-500 mb-1">心电数据</p>
+                <div class="h-12 bg-white rounded-lg flex items-center justify-center mb-1">
+                  <svg viewBox="0 0 200 40" class="w-full h-full px-3"><polyline fill="none" stroke="#EC4899" stroke-width="1.5" stroke-linecap="round" points="0,20 15,20 25,18 30,20 40,20 50,8 55,35 60,20 70,20 85,20 95,18 100,20 110,20 120,8 125,35 130,20 140,20 155,20 165,18 170,20 180,20 190,8 195,35 200,20"/></svg>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] text-gray-400">心率：72 次/分</span>
+                  <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded">窦性心律，正常</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Entry -->
+        <div class="mx-5 grid grid-cols-3 gap-3 pb-20">
+          <div class="bg-white rounded-xl p-3 shadow-sm text-center">
+            <div class="w-10 h-10 mx-auto bg-emerald-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-weight-scale text-emerald-500"></i></div>
+            <p class="text-xs text-gray-600">体脂数据</p>
+          </div>
+          <div class="bg-white rounded-xl p-3 shadow-sm text-center">
+            <div class="w-10 h-10 mx-auto bg-purple-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-yin-yang text-purple-500"></i></div>
+            <p class="text-xs text-gray-600">体质辨识</p>
+          </div>
+          <div class="bg-white rounded-xl p-3 shadow-sm text-center">
+            <div class="w-10 h-10 mx-auto bg-green-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-file-medical text-green-500"></i></div>
+            <p class="text-xs text-gray-600">健康报告</p>
+          </div>
+        </div>
+        </div>
+        <!-- Bottom Tab Bar -->
+        <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-4 pb-6 pt-2" style="z-index:10;">
+          <div class="flex justify-around">
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-house text-emerald-500 text-lg"></i><span class="text-[10px] text-emerald-500 font-medium">首页</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-clipboard-list text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">记录</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-stethoscope text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">辨识</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-user text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">我的</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">2.3 健康档案 — 专项指标</p>
+    </div>
+
+
+    <!-- 2.4 健康档案（空态） -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="absolute top-0 left-0 right-0 h-[380px] bg-gradient-to-b from-emerald-400 via-emerald-300 to-emerald-100/30 pointer-events-none" style="z-index:0;"></div>
+        <div class="relative" style="z-index:1;">
+        <div class="flex justify-between items-center px-8 pt-3 text-white text-xs font-medium">
+          <span>15:39</span>
+          <div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div>
+        </div>
+        <!-- App Name + Mini Program Capsule -->
+        <div class="flex items-center justify-between px-5 pt-3 pb-2">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-white/25 rounded-lg flex items-center justify-center backdrop-blur-sm">
+              <i class="fa-solid fa-heartbeat text-white text-base"></i>
+            </div>
+            <h1 class="text-lg font-bold text-white" style="text-shadow: 0 1px 4px rgba(0,0,0,0.2); letter-spacing: 0.05em;">健康九体辨识</h1>
+          </div>
+          <div class="flex items-center h-[32px] bg-black/15 backdrop-blur-sm rounded-full border border-white/30" style="padding: 0 2px;">
+            <button class="w-[34px] h-[28px] flex items-center justify-center">
+              <svg width="18" height="4" viewBox="0 0 18 4" fill="none"><circle cx="2" cy="2" r="1.8" fill="white" opacity="0.9"/><circle cx="9" cy="2" r="1.8" fill="white" opacity="0.9"/><circle cx="16" cy="2" r="1.8" fill="white" opacity="0.9"/></svg>
+            </button>
+            <div class="w-px h-[18px] bg-white/30"></div>
+            <button class="w-[34px] h-[28px] flex items-center justify-center">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="2.5" y1="2.5" x2="9.5" y2="9.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/><line x1="9.5" y1="2.5" x2="2.5" y2="9.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/></svg>
+            </button>
+          </div>
+        </div>
+        <!-- Profile Info -->
+        <div class="mx-5 flex items-end justify-between gap-6 pt-1 pb-0 mb-0">
+          <div class="shrink-0 w-[120px] h-[128px] flex items-center justify-center pointer-events-none">
+            <img src="logo.png" alt="医院logo" class="w-full h-full object-contain object-center" style="filter: drop-shadow(0 4px 16px rgba(0,0,0,0.1));">
+          </div>
+          <div class="flex-1 min-w-0 flex flex-col items-start text-left gap-2.5 pb-0.5">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl font-bold text-gray-900 leading-tight">本人</span>
+              <i class="fa-solid fa-pen-to-square text-gray-500 text-sm cursor-pointer"></i>
+            </div>
+            <p class="text-sm text-gray-600 leading-snug">男  45岁</p>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-sm text-gray-600">BMI <i class="fa-solid fa-circle-question text-gray-400 text-[10px]"></i>：</span>
+              <span class="text-base font-bold text-gray-900">24.8</span>
+              <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded font-medium">正常</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Bar -->
+        <div class="mx-5 mb-3 mt-2">
+          <div class="flex items-center justify-between bg-white rounded-t-2xl px-2 pt-3 pb-0">
+            <button class="flex-1 flex flex-col items-center gap-1.5 pb-2 relative">
+              <span class="text-[15px] font-bold text-gray-900">基础指标</span>
+              <div class="w-5 h-[3px] rounded-full bg-emerald-500"></div>
+            </button>
+            <button class="flex-1 flex flex-col items-center gap-1.5 pb-2 relative">
+              <span class="text-[15px] font-normal text-gray-400">体成分指标</span>
+              <div class="w-5 h-[3px] rounded-full bg-transparent"></div>
+            </button>
+            <button class="flex-1 flex flex-col items-center gap-1.5 pb-2 relative">
+              <span class="text-[15px] font-normal text-gray-400">专项指标</span>
+              <div class="w-5 h-[3px] rounded-full bg-transparent"></div>
+            </button>
+          </div>
+          <!-- Tab Content — Empty State -->
+          <div class="bg-white rounded-b-2xl rounded-t-none p-4 shadow-sm flex flex-col items-center justify-center py-16">
+            <div class="w-28 h-28 bg-emerald-50 rounded-full flex items-center justify-center mb-6">
+              <i class="fa-solid fa-clipboard-list text-emerald-200 text-5xl"></i>
+            </div>
+            <p class="text-base font-medium text-gray-500 mb-2">暂无健康数据</p>
+            <p class="text-sm text-gray-400 mb-6 text-center">一体机测量完成后数据将自动同步<br>至此页面展示</p>
+            <button class="px-8 h-11 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl flex items-center gap-2 text-sm text-white shadow-lg shadow-emerald-200">
+              <i class="fa-solid fa-stethoscope"></i>开始体质辨识
+            </button>
+          </div>
+        </div>
+        </div>
+        <!-- Bottom Tab Bar -->
+        <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-4 pb-6 pt-2" style="z-index:10;">
+          <div class="flex justify-around">
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-house text-emerald-500 text-lg"></i><span class="text-[10px] text-emerald-500 font-medium">首页</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-clipboard-list text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">记录</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-stethoscope text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">辨识</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-user text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">我的</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">2.4 健康档案（空态 - 无数据）</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ################################################################ -->
+<!-- ================ 模块3：体脂数据 ================ -->
+<!-- ################################################################ -->
+<section id="mod-body" class="mb-16 scroll-mt-20">
+  <div class="mb-6">
+    <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i class="fa-solid fa-weight-scale text-primary-500"></i>3. 体脂数据采集与展示</h2>
+    <p class="text-sm text-gray-500 mt-1">基础体征、体成分分析、专项检测指标展示</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- 3.1 基础体征数据（完整版） -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-700 text-xs font-medium"><span>15:50</span><div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div></div>
+        <div class="flex items-center px-4 h-11 bg-white shadow-sm"><button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-chevron-left text-gray-600"></i></button><span class="flex-1 text-center font-semibold text-base text-gray-900">基础体征</span><div class="w-11"></div></div>
+        <div class="px-5 pt-4 overflow-y-auto h-[calc(100%-80px)] pb-4">
+          <!-- 测量信息 -->
+          <div class="bg-emerald-50 rounded-xl p-3 mb-4 flex items-center gap-3">
+            <i class="fa-solid fa-clock text-emerald-400"></i>
+            <div><p class="text-xs text-emerald-700 font-medium">最近测量：2026-03-28 14:20</p><p class="text-[10px] text-emerald-500">设备：乐佳 HW-V6000 · 数据自动同步</p></div>
+          </div>
+          <!-- 异常提醒横幅 -->
+          <div class="bg-red-50 border border-red-200 rounded-xl p-3 mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-red-500"></i>
+            <div class="flex-1"><p class="text-xs text-red-700 font-medium">发现 2 项异常指标</p><p class="text-[10px] text-red-400">血压偏高、血红蛋白偏低，建议关注</p></div>
+            <i class="fa-solid fa-chevron-right text-red-300 text-xs"></i>
+          </div>
+          <!-- 核心指标 -->
+          <p class="text-xs font-semibold text-gray-500 mb-2 flex items-center gap-1"><i class="fa-solid fa-star text-emerald-400 text-[10px]"></i>核心指标</p>
+          <div class="grid grid-cols-2 gap-2.5 mb-4">
+            <div class="bg-white rounded-xl p-3 shadow-sm"><p class="text-[10px] text-gray-400 mb-1">BMI 体质指数</p><div class="flex items-baseline gap-1"><span class="text-xl font-bold text-gray-900">24.8</span><span class="text-[10px] text-gray-400">kg/m²</span></div><span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded mt-1 inline-block">正常</span><p class="text-[9px] text-gray-300 mt-1">参考 18.5~24.9</p></div>
+            <div class="bg-white rounded-xl p-3 shadow-sm border-l-2 border-red-400 cursor-pointer" onclick="this.querySelector('.abnormal-tip').classList.toggle('hidden')"><p class="text-[10px] text-gray-400 mb-1">血压 <i class="fa-solid fa-circle-info text-red-300 text-[8px]"></i></p><div class="flex items-baseline gap-0.5"><span class="text-xl font-bold text-red-500">145</span><span class="text-xs text-gray-400">/92</span><span class="text-[10px] text-gray-400 ml-0.5">mmHg</span></div><span class="bg-red-100 text-red-500 text-[10px] px-1.5 py-0.5 rounded mt-1 inline-block">偏高 ↑</span><p class="text-[9px] text-gray-300 mt-1">参考 90~140/60~90</p><div class="abnormal-tip hidden mt-2 bg-red-50 rounded-lg p-2 text-[10px] text-red-600 leading-relaxed border border-red-100">收缩压超标，建议低盐饮食、适量运动，定期监测血压。</div></div>
+            <div class="bg-white rounded-xl p-3 shadow-sm"><p class="text-[10px] text-gray-400 mb-1">血氧饱和度</p><div class="flex items-baseline gap-1"><span class="text-xl font-bold text-gray-900">98</span><span class="text-[10px] text-gray-400">%</span></div><span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded mt-1 inline-block">正常</span><p class="text-[9px] text-gray-300 mt-1">参考 95%~100%</p></div>
+            <div class="bg-white rounded-xl p-3 shadow-sm"><p class="text-[10px] text-gray-400 mb-1">心率</p><div class="flex items-baseline gap-1"><span class="text-xl font-bold text-gray-900">72</span><span class="text-[10px] text-gray-400">次/分</span></div><span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded mt-1 inline-block">正常</span><p class="text-[9px] text-gray-300 mt-1">参考 60~100次/分</p></div>
+          </div>
+          <!-- 常用指标 -->
+          <p class="text-xs font-semibold text-gray-500 mb-2 flex items-center gap-1"><i class="fa-solid fa-list text-green-400 text-[10px]"></i>常用指标</p>
+          <div class="grid grid-cols-2 gap-2.5 mb-4">
+            <div class="bg-white rounded-xl p-3 shadow-sm"><p class="text-[10px] text-gray-400 mb-1">身高</p><div class="flex items-baseline gap-1"><span class="text-xl font-bold text-gray-900">175</span><span class="text-[10px] text-gray-400">cm</span></div><span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded mt-1 inline-block">正常</span><p class="text-[9px] text-gray-300 mt-1">##</p></div>
+            <div class="bg-white rounded-xl p-3 shadow-sm"><p class="text-[10px] text-gray-400 mb-1">体重</p><div class="flex items-baseline gap-1"><span class="text-xl font-bold text-gray-900">76</span><span class="text-[10px] text-gray-400">kg</span></div><span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded mt-1 inline-block">正常</span><p class="text-[9px] text-gray-300 mt-1">参考 65~80kg</p></div>
+            <div class="bg-white rounded-xl p-3 shadow-sm"><p class="text-[10px] text-gray-400 mb-1">体温</p><div class="flex items-baseline gap-1"><span class="text-xl font-bold text-gray-900">36.5</span><span class="text-[10px] text-gray-400">°C</span></div><span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded mt-1 inline-block">正常</span><p class="text-[9px] text-gray-300 mt-1">参考 36.1~37.0°C</p></div>
+            <div class="bg-white rounded-xl p-3 shadow-sm border-l-2 border-orange-400 cursor-pointer" onclick="this.querySelector('.abnormal-tip').classList.toggle('hidden')"><p class="text-[10px] text-gray-400 mb-1">血红蛋白 <i class="fa-solid fa-circle-info text-orange-300 text-[8px]"></i></p><div class="flex items-baseline gap-1"><span class="text-xl font-bold text-orange-500">128</span><span class="text-[10px] text-gray-400">g/L</span></div><span class="bg-orange-100 text-orange-500 text-[10px] px-1.5 py-0.5 rounded mt-1 inline-block">偏低 ↓</span><p class="text-[9px] text-gray-300 mt-1">参考 130~175g/L</p><div class="abnormal-tip hidden mt-2 bg-orange-50 rounded-lg p-2 text-[10px] text-orange-600 leading-relaxed border border-orange-100">低于正常范围，可能与营养不均衡有关，建议增加含铁食物摄入。</div></div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">3.1 基础体征数据</p>
+    </div>
+
+    <!-- 3.2 体成分分析 -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-700 text-xs font-medium"><span>15:52</span><div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div></div>
+        <div class="flex items-center px-4 h-11 bg-white shadow-sm"><button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-chevron-left text-gray-600"></i></button><span class="flex-1 text-center font-semibold text-base text-gray-900">体成分分析</span><div class="w-11"></div></div>
+        <div class="px-5 pt-4 overflow-y-auto h-[calc(100%-80px)] pb-4">
+          <!-- Body Composition Summary -->
+          <div class="bg-white rounded-xl p-4 shadow-sm mb-4">
+            <p class="text-sm font-semibold text-gray-900 mb-3">体成分概览</p>
+            <div class="h-8 rounded-full overflow-hidden flex mb-3">
+              <div class="bg-emerald-400 h-full" style="width:55%" title="体水分 55%"></div>
+              <div class="bg-orange-400 h-full" style="width:22%" title="脂肪 22%"></div>
+              <div class="bg-green-400 h-full" style="width:18%" title="肌肉 18%"></div>
+              <div class="bg-gray-300 h-full" style="width:5%" title="骨量 5%"></div>
+            </div>
+            <div class="grid grid-cols-4 gap-1 text-center">
+              <div><div class="w-2 h-2 rounded-full bg-emerald-400 mx-auto mb-1"></div><p class="text-[10px] text-gray-500">体水分</p><p class="text-xs font-semibold">55%</p></div>
+              <div><div class="w-2 h-2 rounded-full bg-orange-400 mx-auto mb-1"></div><p class="text-[10px] text-gray-500">脂肪</p><p class="text-xs font-semibold">22%</p></div>
+              <div><div class="w-2 h-2 rounded-full bg-green-400 mx-auto mb-1"></div><p class="text-[10px] text-gray-500">肌肉</p><p class="text-xs font-semibold">38%</p></div>
+              <div><div class="w-2 h-2 rounded-full bg-gray-300 mx-auto mb-1"></div><p class="text-[10px] text-gray-500">骨量</p><p class="text-xs font-semibold">5%</p></div>
+            </div>
+          </div>
+          <!-- Detail Cards -->
+          <div class="space-y-2.5">
+            <div class="bg-white rounded-xl p-3 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-3"><div class="w-9 h-9 bg-orange-50 rounded-lg flex items-center justify-center"><i class="fa-solid fa-fire text-orange-400"></i></div><div><p class="text-sm font-medium text-gray-800">脂肪率</p><p class="text-[10px] text-gray-400">参考 10%~20%</p></div></div>
+              <div class="text-right"><span class="text-lg font-bold text-gray-900">22.1</span><span class="text-xs text-gray-400 ml-1">%</span><br><span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded">正常</span></div>
+            </div>
+            <div class="bg-white rounded-xl p-3 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-3"><div class="w-9 h-9 bg-green-50 rounded-lg flex items-center justify-center"><i class="fa-solid fa-dumbbell text-green-500"></i></div><div><p class="text-sm font-medium text-gray-800">肌肉量</p><p class="text-[10px] text-gray-400">参考 40~55kg</p></div></div>
+              <div class="text-right"><span class="text-lg font-bold text-gray-900">48.2</span><span class="text-xs text-gray-400 ml-1">kg</span><br><span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded">正常</span></div>
+            </div>
+            <div class="bg-white rounded-xl p-3 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-3"><div class="w-9 h-9 bg-red-50 rounded-lg flex items-center justify-center"><i class="fa-solid fa-bolt text-red-400"></i></div><div><p class="text-sm font-medium text-gray-800">基础代谢</p><p class="text-[10px] text-gray-400">参考 1500~1800kcal</p></div></div>
+              <div class="text-right"><span class="text-lg font-bold text-gray-900">1680</span><span class="text-xs text-gray-400 ml-1">kcal</span><br><span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded">正常</span></div>
+            </div>
+            <div class="bg-white rounded-xl p-3 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-3"><div class="w-9 h-9 bg-emerald-50 rounded-lg flex items-center justify-center"><i class="fa-solid fa-droplet text-emerald-400"></i></div><div><p class="text-sm font-medium text-gray-800">体水分量</p><p class="text-[10px] text-gray-400">参考 55%~65%</p></div></div>
+              <div class="text-right"><span class="text-lg font-bold text-gray-900">41.8</span><span class="text-xs text-gray-400 ml-1">L</span><br><span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded">正常</span></div>
+            </div>
+            <div class="bg-white rounded-xl p-3 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-3"><div class="w-9 h-9 bg-purple-50 rounded-lg flex items-center justify-center"><i class="fa-solid fa-bone text-purple-400"></i></div><div><p class="text-sm font-medium text-gray-800">骨盐</p><p class="text-[10px] text-gray-400">参考 2.5~3.5kg</p></div></div>
+              <div class="text-right"><span class="text-lg font-bold text-gray-900">3.1</span><span class="text-xs text-gray-400 ml-1">kg</span><br><span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded">正常</span></div>
+            </div>
+            <div class="bg-white rounded-xl p-3 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-3"><div class="w-9 h-9 bg-teal-50 rounded-lg flex items-center justify-center"><i class="fa-solid fa-egg text-teal-400"></i></div><div><p class="text-sm font-medium text-gray-800">蛋白质率</p><p class="text-[10px] text-gray-400">参考 16%~20%</p></div></div>
+              <div class="text-right"><span class="text-lg font-bold text-gray-900">17.5</span><span class="text-xs text-gray-400 ml-1">%</span><br><span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded">正常</span></div>
+            </div>
+            <div class="bg-white rounded-xl p-3 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-3"><div class="w-9 h-9 bg-indigo-50 rounded-lg flex items-center justify-center"><i class="fa-solid fa-ruler-horizontal text-indigo-400"></i></div><div><p class="text-sm font-medium text-gray-800">腰围</p><p class="text-[10px] text-gray-400">参考 男&lt;90cm / 女&lt;85cm</p></div></div>
+              <div class="text-right"><span class="text-lg font-bold text-gray-900">85</span><span class="text-xs text-gray-400 ml-1">cm</span><br><span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded">正常</span></div>
+            </div>
+            <div class="bg-white rounded-xl p-3 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-3"><div class="w-9 h-9 bg-violet-50 rounded-lg flex items-center justify-center"><i class="fa-solid fa-circle-dot text-violet-400"></i></div><div><p class="text-sm font-medium text-gray-800">臀围</p><p class="text-[10px] text-gray-400">参考 男90~100cm / 女86~100cm</p></div></div>
+              <div class="text-right"><span class="text-lg font-bold text-gray-900">96</span><span class="text-xs text-gray-400 ml-1">cm</span><br><span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded">正常</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">3.2 体成分分析</p>
+    </div>
+
+    <!-- 3.3 专项检测 -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-700 text-xs font-medium"><span>15:55</span><div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div></div>
+        <div class="flex items-center px-4 h-11 bg-white shadow-sm"><button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-chevron-left text-gray-600"></i></button><span class="flex-1 text-center font-semibold text-base text-gray-900">专项检测</span><div class="w-11"></div></div>
+        <div class="px-5 pt-4 overflow-y-auto h-[calc(100%-80px)] pb-4">
+          <!-- Blood Lipid -->
+          <div class="bg-white rounded-xl p-4 shadow-sm mb-3">
+            <div class="flex items-center justify-between mb-3">
+              <p class="text-sm font-semibold text-gray-900"><i class="fa-solid fa-vial text-red-400 mr-2"></i>血脂四项</p>
+              <span class="text-[10px] text-gray-400">2026-03-28</span>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between p-2 bg-gray-50 rounded-lg"><div><p class="text-xs text-gray-600">总胆固醇</p><p class="text-[9px] text-gray-300">参考 &lt;5.2mmol/L</p></div><div class="text-right"><span class="text-sm font-bold text-gray-900">5.2</span><span class="text-xs text-gray-400 ml-1">mmol/L</span><span class="bg-green-100 text-green-600 text-[10px] px-1 py-0.5 rounded ml-1">正常</span></div></div>
+              <div class="flex items-center justify-between p-2 bg-gray-50 rounded-lg"><div><p class="text-xs text-gray-600">高密度蛋白</p><p class="text-[9px] text-gray-300">参考 &gt;1.0mmol/L</p></div><div class="text-right"><span class="text-sm font-bold text-gray-900">1.3</span><span class="text-xs text-gray-400 ml-1">mmol/L</span><span class="bg-green-100 text-green-600 text-[10px] px-1 py-0.5 rounded ml-1">正常</span></div></div>
+              <div class="cursor-pointer" onclick="this.querySelector('.abnormal-tip').classList.toggle('hidden')"><div class="flex items-center justify-between p-2 bg-red-50 rounded-lg border-l-2 border-red-400"><div><p class="text-xs text-gray-600">甘油三酯 <i class="fa-solid fa-circle-info text-red-300 text-[8px]"></i></p><p class="text-[9px] text-gray-300">参考 &lt;1.7mmol/L</p></div><div class="text-right"><span class="text-sm font-bold text-red-500">2.8</span><span class="text-xs text-gray-400 ml-1">mmol/L</span><span class="bg-red-100 text-red-500 text-[10px] px-1 py-0.5 rounded ml-1">偏高 ↑</span></div></div><div class="abnormal-tip hidden mt-1 bg-red-50 rounded-lg p-2 text-[10px] text-red-600 leading-relaxed border border-red-100"><b>异常原因：</b>可能与高脂饮食、缺乏运动有关。<br><b>建议：</b>控制油脂摄入，增加有氧运动，3个月后复查。</div></div>
+              <div class="flex items-center justify-between p-2 bg-gray-50 rounded-lg"><div><p class="text-xs text-gray-600">低密度蛋白</p><p class="text-[9px] text-gray-300">参考 &lt;3.4mmol/L</p></div><div class="text-right"><span class="text-sm font-bold text-gray-900">3.1</span><span class="text-xs text-gray-400 ml-1">mmol/L</span><span class="bg-green-100 text-green-600 text-[10px] px-1 py-0.5 rounded ml-1">正常</span></div></div>
+            </div>
+          </div>
+          <!-- Urine Analysis -->
+          <div class="bg-white rounded-xl p-4 shadow-sm mb-3">
+            <div class="flex items-center justify-between mb-3">
+              <p class="text-sm font-semibold text-gray-900"><i class="fa-solid fa-flask text-yellow-500 mr-2"></i>尿液分析</p>
+              <span class="text-[10px] text-gray-400">2026-03-28</span>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between p-2 bg-gray-50 rounded-lg"><div><p class="text-xs text-gray-600">白细胞</p><p class="text-[9px] text-gray-300">参考 阴性(-)</p></div><div class="text-right"><span class="text-sm font-bold text-gray-900">阴性(-)</span><span class="bg-green-100 text-green-600 text-[10px] px-1 py-0.5 rounded ml-1">正常</span></div></div>
+              <div class="flex items-center justify-between p-2 bg-gray-50 rounded-lg"><div><p class="text-xs text-gray-600">潜血</p><p class="text-[9px] text-gray-300">参考 阴性(-)</p></div><div class="text-right"><span class="text-sm font-bold text-gray-900">阴性(-)</span><span class="bg-green-100 text-green-600 text-[10px] px-1 py-0.5 rounded ml-1">正常</span></div></div>
+              <div class="flex items-center justify-between p-2 bg-gray-50 rounded-lg"><div><p class="text-xs text-gray-600">PH值</p><p class="text-[9px] text-gray-300">参考 4.5~8.0</p></div><div class="text-right"><span class="text-sm font-bold text-gray-900">6.5</span><span class="bg-green-100 text-green-600 text-[10px] px-1 py-0.5 rounded ml-1">正常</span></div></div>
+            </div>
+          </div>
+          <!-- ECG -->
+          <div class="bg-white rounded-xl p-4 shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <p class="text-sm font-semibold text-gray-900"><i class="fa-solid fa-heart-pulse text-pink-500 mr-2"></i>心电数据</p>
+              <span class="text-[10px] text-gray-400">快速心电</span>
+            </div>
+            <div class="h-20 bg-gray-50 rounded-lg flex items-center justify-center mb-2">
+              <svg viewBox="0 0 300 60" class="w-full h-full px-4"><polyline fill="none" stroke="#EC4899" stroke-width="2" stroke-linecap="round" points="0,30 20,30 30,30 40,28 50,30 60,30 70,10 75,50 80,30 90,30 100,30 120,30 130,30 140,28 150,30 160,30 170,10 175,50 180,30 190,30 200,30 220,30 230,30 240,28 250,30 260,30 270,10 275,50 280,30 290,30 300,30"/></svg>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-gray-500">心率：72 次/分</span>
+              <span class="bg-green-100 text-green-600 text-[10px] px-1.5 py-0.5 rounded">窦性心律，正常</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">3.3 专项检测</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ################################################################ -->
+<!-- ================ 模块4：九体辨识 ================ -->
+<!-- ################################################################ -->
+<section id="mod-constitution" class="mb-16 scroll-mt-20">
+  <div class="mb-6">
+    <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i class="fa-solid fa-yin-yang text-primary-500"></i>4. 九体辨识</h2>
+    <p class="text-sm text-gray-500 mt-1">体质辨识入口、问卷、结果展示及历史对比</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- 4.1 辨识入口 & 问卷 -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-700 text-xs font-medium"><span>16:00</span><div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div></div>
+        <div class="flex items-center px-4 h-11 bg-white"><button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-chevron-left text-gray-600"></i></button><span class="flex-1 text-center font-semibold text-base text-gray-900">体质辨识</span><div class="w-11"></div></div>
+        <div class="px-5 pt-4">
+          <!-- Hero Card -->
+          <div class="bg-gradient-to-r from-[#10B981] to-[#059669] rounded-2xl p-5 text-white mb-5 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-36 h-36 bg-[#047857]/30 rounded-full -mr-12 -mt-12 pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-8 -mb-8 pointer-events-none"></div>
+            <div class="relative">
+              <div class="flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-yin-yang text-2xl"></i>
+                <span class="text-lg font-bold">中医九体辨识</span>
+              </div>
+              <p class="text-white/90 text-xs mb-4">基于中医体质学理论，通过标准化问卷评估您的体质类型，获取个性化健康建议</p>
+              <div class="flex items-center gap-3">
+                <div class="text-center"><p class="text-lg font-bold">9</p><p class="text-[10px] text-white/80">体质类型</p></div>
+                <div class="w-px h-8 bg-white/25"></div>
+                <div class="text-center"><p class="text-lg font-bold">60</p><p class="text-[10px] text-white/80">评估问题</p></div>
+                <div class="w-px h-8 bg-white/25"></div>
+                <div class="text-center"><p class="text-lg font-bold">5分钟</p><p class="text-[10px] text-white/80">预计用时</p></div>
+              </div>
+            </div>
+          </div>
+          <!-- 9 Constitution Types -->
+          <p class="text-sm font-semibold text-gray-900 mb-3">九种体质类型</p>
+          <div class="grid grid-cols-3 gap-2 mb-5">
+            <div class="bg-white rounded-xl p-2.5 shadow-sm text-center"><div class="w-10 h-10 mx-auto bg-green-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-yin-yang text-lg text-green-500"></i></div><p class="text-xs font-medium text-gray-700">平和质</p></div>
+            <div class="bg-white rounded-xl p-2.5 shadow-sm text-center"><div class="w-10 h-10 mx-auto bg-yellow-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-wind text-lg text-yellow-500"></i></div><p class="text-xs font-medium text-gray-700">气虚质</p></div>
+            <div class="bg-white rounded-xl p-2.5 shadow-sm text-center"><div class="w-10 h-10 mx-auto bg-red-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-sun text-lg text-red-500"></i></div><p class="text-xs font-medium text-gray-700">阳虚质</p></div>
+            <div class="bg-white rounded-xl p-2.5 shadow-sm text-center"><div class="w-10 h-10 mx-auto bg-purple-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-moon text-lg text-purple-500"></i></div><p class="text-xs font-medium text-gray-700">阴虚质</p></div>
+            <div class="bg-white rounded-xl p-2.5 shadow-sm text-center"><div class="w-10 h-10 mx-auto bg-emerald-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-droplet text-lg text-emerald-500"></i></div><p class="text-xs font-medium text-gray-700">痰湿质</p></div>
+            <div class="bg-white rounded-xl p-2.5 shadow-sm text-center"><div class="w-10 h-10 mx-auto bg-orange-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-fire text-lg text-orange-500"></i></div><p class="text-xs font-medium text-gray-700">湿热质</p></div>
+            <div class="bg-white rounded-xl p-2.5 shadow-sm text-center"><div class="w-10 h-10 mx-auto bg-pink-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-droplet text-lg text-pink-500"></i></div><p class="text-xs font-medium text-gray-700">血瘀质</p></div>
+            <div class="bg-white rounded-xl p-2.5 shadow-sm text-center"><div class="w-10 h-10 mx-auto bg-teal-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-leaf text-lg text-teal-500"></i></div><p class="text-xs font-medium text-gray-700">气郁质</p></div>
+            <div class="bg-white rounded-xl p-2.5 shadow-sm text-center"><div class="w-10 h-10 mx-auto bg-indigo-50 rounded-full flex items-center justify-center mb-1"><i class="fa-solid fa-spa text-lg text-indigo-500"></i></div><p class="text-xs font-medium text-gray-700">特禀质</p></div>
+          </div>
+          <!-- Start Button -->
+          <button class="w-full h-12 bg-gradient-to-r from-[#10B981] to-[#059669] text-white font-semibold rounded-xl shadow-lg shadow-[0_8px_24px_rgba(5,150,105,0.35)] text-base">开始辨识 <i class="fa-solid fa-arrow-right ml-1"></i></button>
+          <p class="text-center text-xs text-gray-400 mt-3">已有 <span class="text-primary-500 font-medium">3</span> 次辨识记录</p>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">4.1 辨识入口 & 问卷</p>
+    </div>
+
+    <!-- 4.2 辨识结果页 -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-700 text-xs font-medium"><span>16:08</span><div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div></div>
+        <div class="flex items-center px-4 h-11 bg-white"><button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-chevron-left text-gray-600"></i></button><span class="flex-1 text-center font-semibold text-base text-gray-900">辨识结果</span><button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-share-nodes text-gray-600"></i></button></div>
+        <div class="px-5 pt-4">
+          <!-- Result Card -->
+          <div class="bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl p-5 text-white mb-4 text-center relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+            <p class="text-xs text-primary-100 mb-1">您的主导体质</p>
+            <p class="text-3xl font-bold mb-1">阳虚质</p>
+            <div class="flex items-center justify-center gap-1 mb-3"><span class="text-lg font-bold">78</span><span class="text-xs">分</span></div>
+            <div class="inline-flex items-center bg-white/20 rounded-full px-3 py-1"><i class="fa-solid fa-lightbulb text-xs mr-1"></i><span class="text-xs">畏寒怕冷、手脚不温</span></div>
+          </div>
+          <!-- Score List -->
+          <div class="bg-white rounded-xl p-4 shadow-sm mb-4">
+            <p class="text-sm font-semibold text-gray-900 mb-3">各体质得分</p>
+            <div class="space-y-2.5">
+              <div><div class="flex justify-between text-xs mb-1"><span class="text-gray-600">阳虚质</span><span class="text-primary-500 font-semibold">78分</span></div><div class="h-2 bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-primary-400 to-primary-600 rounded-full" style="width:78%"></div></div></div>
+              <div><div class="flex justify-between text-xs mb-1"><span class="text-gray-600">气虚质</span><span class="text-primary-500 font-semibold">52分</span></div><div class="h-2 bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-primary-300 to-primary-500 rounded-full" style="width:52%"></div></div></div>
+              <div><div class="flex justify-between text-xs mb-1"><span class="text-gray-600">痰湿质</span><span class="text-primary-500 font-semibold">35分</span></div><div class="h-2 bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-primary-300 to-primary-500 rounded-full" style="width:35%"></div></div></div>
+              <div><div class="flex justify-between text-xs mb-1"><span class="text-gray-600">平和质</span><span class="text-primary-500 font-semibold">30分</span></div><div class="h-2 bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-primary-300 to-primary-500 rounded-full" style="width:30%"></div></div></div>
+              <div><div class="flex justify-between text-xs mb-1"><span class="text-gray-600">阴虚质</span><span class="text-primary-500 font-semibold">22分</span></div><div class="h-2 bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-primary-300 to-primary-500 rounded-full" style="width:22%"></div></div></div>
+            </div>
+          </div>
+          <!-- Feature -->
+          <div class="bg-white rounded-xl p-4 shadow-sm">
+            <p class="text-sm font-semibold text-gray-900 mb-2">体质特点解读</p>
+            <div class="text-xs text-gray-600 leading-relaxed space-y-2">
+              <p>阳虚体质以<span class="text-primary-500 font-medium">畏寒怕冷</span>为主要特征，手脚冰凉，面色偏白，精神疲倦。</p>
+              <p><span class="font-medium text-gray-800">调养方向：</span>温补阳气，避免生冷，适当进行温和运动。</p>
+              <p><span class="font-medium text-gray-800">饮食建议：</span>多食羊肉、生姜、桂圆等温性食物。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">4.2 辨识结果页</p>
+    </div>
+
+    <!-- 4.3 历史对比（雷达图） -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-700 text-xs font-medium"><span>16:10</span><div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div></div>
+        <div class="flex items-center px-4 h-11 bg-white"><button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-chevron-left text-gray-600"></i></button><span class="flex-1 text-center font-semibold text-base text-gray-900">历史对比</span><div class="w-11"></div></div>
+        <div class="px-5 pt-4">
+          <!-- Time Selector -->
+          <div class="flex gap-2 mb-4">
+            <div class="flex-1 bg-emerald-50 border border-emerald-200 rounded-lg p-2 text-center"><p class="text-[10px] text-gray-400">本次</p><p class="text-xs font-semibold text-emerald-600">2026-03-28</p></div>
+            <div class="flex items-center"><i class="fa-solid fa-right-left text-gray-400 text-sm"></i></div>
+            <div class="flex-1 bg-gray-50 border border-gray-200 rounded-lg p-2 text-center"><p class="text-[10px] text-gray-400">上次</p><p class="text-xs font-semibold text-gray-600">2026-01-15</p></div>
+          </div>
+          <!-- Radar Chart -->
+          <div class="bg-white rounded-xl p-4 shadow-sm mb-4">
+            <p class="text-sm font-semibold text-gray-900 mb-3 text-center">体质雷达图</p>
+            <div class="flex justify-center">
+              <svg viewBox="0 0 260 260" class="w-56 h-56">
+                <!-- Grid -->
+                <polygon points="130,30 210,80 210,180 130,230 50,180 50,80" fill="none" stroke="#E5E7EB" stroke-width="1"/>
+                <polygon points="130,55 190,92 190,168 130,205 70,168 70,92" fill="none" stroke="#E5E7EB" stroke-width="0.5"/>
+                <polygon points="130,80 170,105 170,155 130,180 90,155 90,105" fill="none" stroke="#E5E7EB" stroke-width="0.5"/>
+                <!-- Axis Lines -->
+                <line x1="130" y1="30" x2="130" y2="230" stroke="#E5E7EB" stroke-width="0.5"/>
+                <line x1="50" y1="80" x2="210" y2="180" stroke="#E5E7EB" stroke-width="0.5"/>
+                <line x1="210" y1="80" x2="50" y2="180" stroke="#E5E7EB" stroke-width="0.5"/>
+                <!-- Previous (gray) -->
+                <polygon points="130,65 175,95 185,160 130,195 80,155 75,100" fill="rgba(156,163,175,0.1)" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="4"/>
+                <!-- Current (green) -->
+                <polygon points="130,50 195,90 180,170 130,205 65,165 70,88" fill="rgba(5,150,105,0.15)" stroke="#059669" stroke-width="2"/>
+                <!-- Labels -->
+                <text x="130" y="22" text-anchor="middle" fill="#374151" font-size="9" font-weight="600">平和质</text>
+                <text x="218" y="78" text-anchor="start" fill="#374151" font-size="9">气虚质</text>
+                <text x="218" y="185" text-anchor="start" fill="#374151" font-size="9">阳虚质</text>
+                <text x="130" y="248" text-anchor="middle" fill="#374151" font-size="9">阴虚质</text>
+                <text x="38" y="185" text-anchor="end" fill="#374151" font-size="9">痰湿质</text>
+                <text x="38" y="78" text-anchor="end" fill="#374151" font-size="9">湿热质</text>
+              </svg>
+            </div>
+            <div class="flex items-center justify-center gap-4 mt-2">
+              <div class="flex items-center gap-1.5"><div class="w-3 h-1.5 bg-primary-500 rounded"></div><span class="text-[10px] text-gray-500">本次(3月28日)</span></div>
+              <div class="flex items-center gap-1.5"><div class="w-3 h-1.5 bg-gray-400 rounded border-dashed"></div><span class="text-[10px] text-gray-500">上次(1月15日)</span></div>
+            </div>
+          </div>
+          <!-- Change Summary -->
+          <div class="bg-white rounded-xl p-4 shadow-sm">
+            <p class="text-sm font-semibold text-gray-900 mb-3">变化摘要</p>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between text-xs p-2 bg-red-50 rounded-lg"><span class="text-gray-600">阳虚质</span><div><span class="text-red-500 font-medium">78分</span><span class="text-gray-400 mx-1">←</span><span class="text-gray-500">65分</span><span class="text-red-500 ml-1">↑13</span></div></div>
+              <div class="flex items-center justify-between text-xs p-2 bg-green-50 rounded-lg"><span class="text-gray-600">气虚质</span><div><span class="text-green-500 font-medium">52分</span><span class="text-gray-400 mx-1">←</span><span class="text-gray-500">60分</span><span class="text-green-500 ml-1">↓8</span></div></div>
+              <div class="flex items-center justify-between text-xs p-2 bg-gray-50 rounded-lg"><span class="text-gray-600">痰湿质</span><div><span class="text-gray-700 font-medium">35分</span><span class="text-gray-400 mx-1">←</span><span class="text-gray-500">33分</span><span class="text-gray-400 ml-1">→</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">4.3 历史对比（雷达图）</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ################################################################ -->
+<!-- ================ 模块5：健康报告 ================ -->
+<!-- ################################################################ -->
+<section id="mod-report" class="mb-16 scroll-mt-20">
+  <div class="mb-6">
+    <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i class="fa-solid fa-file-medical text-primary-500"></i>5. 健康报告</h2>
+    <p class="text-sm text-gray-500 mt-1">报告列表、报告详情展示（含医师批注）</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- 5.1 报告列表 -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-700 text-xs font-medium"><span>16:15</span><div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div></div>
+        <div class="flex items-center px-4 h-11 bg-white"><button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-chevron-left text-gray-600"></i></button><span class="flex-1 text-center font-semibold text-base text-gray-900">健康报告</span><div class="w-11"></div></div>
+        <div class="px-5 pt-4">
+          <!-- Filter -->
+          <div class="flex gap-2 mb-4">
+            <div class="flex-1 h-10 bg-white rounded-lg px-3 flex items-center border border-gray-200"><i class="fa-solid fa-search text-gray-400 text-sm mr-2"></i><span class="text-sm text-gray-400">搜索报告</span></div>
+            <button class="h-10 px-3 bg-white rounded-lg border border-gray-200 flex items-center gap-1 text-sm text-gray-600"><i class="fa-solid fa-filter text-xs"></i>筛选</button>
+          </div>
+          <!-- Report Cards -->
+          <div class="space-y-3">
+            <div class="bg-white rounded-xl p-4 shadow-sm border-l-4 border-green-500">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-2"><span class="bg-green-100 text-green-600 text-[10px] px-2 py-0.5 rounded-full font-medium">已审核</span><span class="text-xs text-gray-400">NO.20260328143020</span></div>
+                <i class="fa-solid fa-chevron-right text-gray-400 text-xs"></i>
+              </div>
+              <p class="text-sm font-semibold text-gray-900 mb-1">健康体检报告</p>
+              <div class="flex items-center gap-3 text-xs text-gray-500">
+                <span><i class="fa-solid fa-calendar text-gray-400 mr-1"></i>2026-03-28</span>
+                <span><i class="fa-solid fa-user-doctor text-gray-400 mr-1"></i>李医师已批注</span>
+              </div>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="bg-green-50 text-green-600 text-[10px] px-2 py-0.5 rounded">健康评级：良好</span>
+                <span class="bg-red-50 text-red-500 text-[10px] px-2 py-0.5 rounded">异常指标 2项</span>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl p-4 shadow-sm border-l-4 border-orange-400">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-2"><span class="bg-orange-100 text-orange-600 text-[10px] px-2 py-0.5 rounded-full font-medium">待审核</span><span class="text-xs text-gray-400">NO.20260115102030</span></div>
+                <i class="fa-solid fa-chevron-right text-gray-400 text-xs"></i>
+              </div>
+              <p class="text-sm font-semibold text-gray-900 mb-1">健康体检报告</p>
+              <div class="flex items-center gap-3 text-xs text-gray-500">
+                <span><i class="fa-solid fa-calendar text-gray-400 mr-1"></i>2026-01-15</span>
+                <span class="text-orange-500"><i class="fa-solid fa-clock mr-1"></i>等待医师审核</span>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl p-4 shadow-sm border-l-4 border-emerald-500">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-2"><span class="bg-emerald-100 text-emerald-600 text-[10px] px-2 py-0.5 rounded-full font-medium">需复查</span><span class="text-xs text-gray-400">NO.20251220090515</span></div>
+                <i class="fa-solid fa-chevron-right text-gray-400 text-xs"></i>
+              </div>
+              <p class="text-sm font-semibold text-gray-900 mb-1">健康体检报告</p>
+              <div class="flex items-center gap-3 text-xs text-gray-500">
+                <span><i class="fa-solid fa-calendar text-gray-400 mr-1"></i>2025-12-20</span>
+                <span><i class="fa-solid fa-user-doctor text-gray-400 mr-1"></i>王医师已批注</span>
+              </div>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="bg-orange-50 text-orange-600 text-[10px] px-2 py-0.5 rounded">健康评级：需关注</span>
+                <span class="bg-red-50 text-red-500 text-[10px] px-2 py-0.5 rounded">异常指标 5项</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-4 pb-6 pt-2">
+          <div class="flex justify-around">
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-house text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">首页</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-clipboard-list text-emerald-500 text-lg"></i><span class="text-[10px] text-emerald-500 font-medium">记录</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-stethoscope text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">辨识</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-user text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">我的</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">5.1 报告列表</p>
+    </div>
+
+    <!-- 5.2 报告详情 -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800 overflow-y-auto">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-700 text-xs font-medium sticky top-0 bg-gray-50 z-10"><span>16:18</span><div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div></div>
+        <div class="flex items-center px-4 h-11 bg-white sticky top-6 z-10"><button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-chevron-left text-gray-600"></i></button><span class="flex-1 text-center font-semibold text-base text-gray-900">报告详情</span><button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-download text-gray-600"></i></button></div>
+        <div class="px-5 pt-4 pb-8">
+          <!-- Header -->
+          <div class="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl p-4 text-white mb-4">
+            <div class="flex items-center justify-between mb-2">
+              <p class="text-lg font-bold">健康体检报告</p>
+              <span class="bg-white/20 text-xs px-2 py-1 rounded-full">已审核 ✓</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-xs text-emerald-100">
+              <p>姓名：张晓明</p><p>性别：男</p>
+              <p>年龄：45岁</p><p>编号：20260328143020</p>
+              <p>设备：乐佳 HW-V6000</p><p>日期：2026-03-28</p>
+            </div>
+          </div>
+          <!-- Health Rating -->
+          <div class="bg-white rounded-xl p-4 shadow-sm mb-3">
+            <p class="text-sm font-semibold text-gray-900 mb-2">综合评估</p>
+            <div class="flex items-center gap-3">
+              <div class="w-16 h-16 bg-green-50 rounded-xl flex flex-col items-center justify-center">
+                <span class="text-xl font-bold text-green-500">良好</span>
+              </div>
+              <div class="flex-1 text-xs text-gray-600 leading-relaxed">
+                <p>整体健康状态良好，血压偏高和甘油三酯偏高需要关注。建议控制饮食并定期复查。</p>
+              </div>
+            </div>
+          </div>
+          <!-- Abnormal List -->
+          <div class="bg-white rounded-xl p-4 shadow-sm mb-3">
+            <p class="text-sm font-semibold text-gray-900 mb-2">异常指标清单</p>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between p-2 bg-red-50 rounded-lg text-xs"><div class="flex items-center gap-2"><i class="fa-solid fa-circle-exclamation text-red-400"></i><span class="text-gray-700">血压</span></div><span class="text-red-500 font-medium">145/92 mmHg ↑</span></div>
+              <div class="flex items-center justify-between p-2 bg-red-50 rounded-lg text-xs"><div class="flex items-center gap-2"><i class="fa-solid fa-circle-exclamation text-red-400"></i><span class="text-gray-700">甘油三酯</span></div><span class="text-red-500 font-medium">2.8 mmol/L ↑</span></div>
+            </div>
+          </div>
+          <!-- Constitution -->
+          <div class="bg-white rounded-xl p-4 shadow-sm mb-3">
+            <p class="text-sm font-semibold text-gray-900 mb-2">体质辨识结果</p>
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 bg-orange-50 rounded-xl flex items-center justify-center"><i class="fa-solid fa-sun text-2xl text-orange-500"></i></div>
+              <div><p class="text-sm font-bold text-gray-900">阳虚质 · 78分</p><p class="text-xs text-gray-500">畏寒怕冷、手脚不温、面色偏白</p></div>
+            </div>
+          </div>
+          <!-- Health Advice -->
+          <div class="bg-white rounded-xl p-4 shadow-sm mb-3">
+            <p class="text-sm font-semibold text-gray-900 mb-2"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i>健康建议</p>
+            <div class="text-xs text-gray-600 leading-relaxed space-y-2">
+              <div class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">●</span><p><span class="font-medium text-gray-800">饮食：</span>减少高钠高脂食物，多食富含钾元素的蔬果，温补阳气。</p></div>
+              <div class="flex items-start gap-2"><span class="text-green-500 mt-0.5">●</span><p><span class="font-medium text-gray-800">运动：</span>每周3-5次有氧运动，每次30分钟以上。</p></div>
+              <div class="flex items-start gap-2"><span class="text-purple-500 mt-0.5">●</span><p><span class="font-medium text-gray-800">生活：</span>保证充足睡眠，避免熬夜，保持心情愉悦。</p></div>
+            </div>
+          </div>
+          <!-- Doctor Notes -->
+          <div class="bg-emerald-50 rounded-xl p-4 mb-3 border border-emerald-200">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center"><i class="fa-solid fa-user-doctor text-white text-sm"></i></div>
+              <div><p class="text-sm font-semibold text-gray-900">李医师批注</p><p class="text-[10px] text-gray-400">2026-03-29 09:30</p></div>
+            </div>
+            <p class="text-xs text-gray-700 leading-relaxed">患者血压持续偏高，建议进一步做24小时动态血压监测。甘油三酯偏高可能与饮食习惯有关，建议3个月后复查血脂四项。阳虚体质患者注意保暖，避免生冷。</p>
+            <div class="mt-2 bg-orange-50 rounded-lg p-2 flex items-center gap-2">
+              <i class="fa-solid fa-bell text-orange-500 text-xs"></i>
+              <span class="text-xs text-orange-600">复查提醒：2026-06-28 复查血脂四项</span>
+            </div>
+          </div>
+          <!-- Actions -->
+          <button class="w-full h-11 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-medium rounded-xl text-sm shadow-lg shadow-emerald-200"><i class="fa-solid fa-file-pdf mr-2"></i>保存为 PDF</button>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">5.2 报告详情</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ################################################################ -->
+<!-- ================ 模块6：个人中心 ================ -->
+<!-- ################################################################ -->
+<section id="mod-profile" class="mb-16 scroll-mt-20">
+  <div class="mb-6">
+    <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i class="fa-solid fa-user-gear text-primary-500"></i>6. 个人中心</h2>
+    <p class="text-sm text-gray-500 mt-1">个人信息、我的记录、咨询医师</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- 6.1 个人中心主页 -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-700 text-xs font-medium"><span>16:25</span><div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div></div>
+        <!-- Profile Header -->
+        <div class="bg-gradient-to-b from-emerald-500 to-emerald-400 px-5 pt-6 pb-12 relative">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg"><i class="fa-solid fa-user text-emerald-400 text-2xl"></i></div>
+            <div class="text-white">
+              <p class="text-lg font-bold">张晓明</p>
+              <p class="text-xs text-emerald-100">男 · 45岁 · 110105****1234</p>
+            </div>
+            <button class="ml-auto w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"><i class="fa-solid fa-pen text-white text-xs"></i></button>
+          </div>
+        </div>
+        <!-- Stats Cards -->
+        <div class="mx-5 -mt-8 bg-white rounded-xl p-4 shadow-sm flex justify-around mb-4 relative z-10">
+          <div class="text-center"><p class="text-lg font-bold text-emerald-600">12</p><p class="text-xs text-gray-400">体脂记录</p></div>
+          <div class="w-px bg-gray-200"></div>
+          <div class="text-center"><p class="text-lg font-bold text-orange-500">3</p><p class="text-xs text-gray-400">辨识记录</p></div>
+          <div class="w-px bg-gray-200"></div>
+          <div class="text-center"><p class="text-lg font-bold text-green-500">5</p><p class="text-xs text-gray-400">健康报告</p></div>
+        </div>
+        <!-- Menu Items -->
+        <div class="mx-5 bg-white rounded-xl shadow-sm divide-y divide-gray-100 mb-4">
+          <div class="flex items-center px-4 h-12 gap-3"><i class="fa-solid fa-clipboard-list text-emerald-500 w-5 text-center"></i><span class="flex-1 text-sm text-gray-800">我的记录</span><i class="fa-solid fa-chevron-right text-gray-400 text-xs"></i></div>
+          <div class="flex items-center px-4 h-12 gap-3"><i class="fa-solid fa-user-doctor text-green-500 w-5 text-center"></i><span class="flex-1 text-sm text-gray-800">咨询医师</span><span class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full min-w-[18px] text-center">2</span><i class="fa-solid fa-chevron-right text-gray-400 text-xs"></i></div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-4 pb-6 pt-2">
+          <div class="flex justify-around">
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-house text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">首页</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-clipboard-list text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">记录</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-stethoscope text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">辨识</span></div>
+            <div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-user text-emerald-500 text-lg"></i><span class="text-[10px] text-emerald-500 font-medium">我的</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">6.1 个人中心主页</p>
+    </div>
+
+    <!-- 6.2 咨询医师 -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-100 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-700 text-xs font-medium"><span>16:30</span><div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div></div>
+        <div class="flex items-center px-4 h-11 bg-white"><button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-chevron-left text-gray-600"></i></button><span class="flex-1 text-center font-semibold text-base text-gray-900">咨询医师</span><div class="w-11"></div></div>
+        <div class="px-5 pt-4 pb-20">
+          <!-- Doctor Info -->
+          <div class="bg-white rounded-xl p-3 shadow-sm flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center"><i class="fa-solid fa-user-doctor text-white text-sm"></i></div>
+            <div class="flex-1"><p class="text-sm font-semibold text-gray-900">李明 主治医师</p><p class="text-xs text-gray-400">北京市第一人民医院 · 中医科</p></div>
+            <span class="bg-green-100 text-green-600 text-[10px] px-2 py-0.5 rounded-full">在线</span>
+          </div>
+          <!-- Chat Messages -->
+          <div class="space-y-4">
+            <div class="flex justify-end"><div class="bg-emerald-500 text-white text-xs rounded-2xl rounded-tr-md px-4 py-2.5 max-w-[75%]">李医师您好，我最近总觉得手脚冰凉，血压也偏高，请问需要注意什么？</div></div>
+            <div class="flex items-start gap-2"><div class="w-7 h-7 bg-emerald-500 rounded-full flex items-center justify-center shrink-0"><i class="fa-solid fa-user-doctor text-white text-[10px]"></i></div><div class="bg-white text-xs text-gray-700 rounded-2xl rounded-tl-md px-4 py-2.5 max-w-[75%] shadow-sm leading-relaxed">张先生您好。根据您的体检报告，血压偏高需要注意控制，建议减少钠盐摄入。手脚冰凉与您的阳虚体质有关，可以适量多吃温性食物如羊肉、生姜。</div></div>
+            <div class="flex justify-end"><div class="bg-emerald-500 text-white text-xs rounded-2xl rounded-tr-md px-4 py-2.5 max-w-[75%]">好的，谢谢医师！需要吃药吗？</div></div>
+            <div class="flex items-start gap-2"><div class="w-7 h-7 bg-emerald-500 rounded-full flex items-center justify-center shrink-0"><i class="fa-solid fa-user-doctor text-white text-[10px]"></i></div><div class="bg-white text-xs text-gray-700 rounded-2xl rounded-tl-md px-4 py-2.5 max-w-[75%] shadow-sm leading-relaxed">目前建议先通过饮食和运动调理，如果3个月后复查血压仍然偏高，再考虑药物治疗。建议6月底来复查一次。</div></div>
+          </div>
+        </div>
+        <!-- Input Bar -->
+        <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 pb-8 pt-2">
+          <div class="flex items-center gap-2">
+            <button class="w-9 h-9 flex items-center justify-center"><i class="fa-solid fa-plus text-gray-400"></i></button>
+            <div class="flex-1 h-9 bg-gray-100 rounded-full px-4 flex items-center"><span class="text-xs text-gray-400">输入消息...</span></div>
+            <button class="w-9 h-9 bg-emerald-500 rounded-full flex items-center justify-center"><i class="fa-solid fa-paper-plane text-white text-xs"></i></button>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">6.2 咨询医师</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ################################################################ -->
+<!-- ================ 模块6续：我的记录 ================ -->
+<!-- ################################################################ -->
+<section id="mod-records" class="mb-16 scroll-mt-20">
+  <div class="mb-6">
+    <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i class="fa-solid fa-clock-rotate-left text-primary-500"></i>6.3 我的记录</h2>
+    <p class="text-sm text-gray-500 mt-1">分类展示体脂记录、辨识记录、健康报告，支持时间筛选</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-700 text-xs font-medium"><span>16:35</span><div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div></div>
+        <div class="flex items-center px-4 h-11 bg-white shadow-sm"><button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-chevron-left text-gray-600"></i></button><span class="flex-1 text-center font-semibold text-base text-gray-900">我的记录</span><div class="w-11"></div></div>
+        <div class="px-5 pt-4 pb-20">
+          <!-- Tabs -->
+          <div class="flex bg-gray-100 rounded-xl p-1 mb-4">
+            <button class="flex-1 py-2 text-xs font-semibold bg-white rounded-lg shadow-sm text-emerald-600">体脂记录</button>
+            <button class="flex-1 py-2 text-xs font-medium text-gray-400">辨识记录</button>
+            <button class="flex-1 py-2 text-xs font-medium text-gray-400">健康报告</button>
+          </div>
+          <!-- Filter -->
+          <div class="flex gap-2 mb-4">
+            <div class="flex-1 h-9 bg-white rounded-lg px-3 flex items-center border border-gray-200"><i class="fa-solid fa-search text-gray-400 text-xs mr-2"></i><span class="text-xs text-gray-400">搜索记录</span></div>
+            <button class="h-9 px-3 bg-white rounded-lg border border-gray-200 flex items-center gap-1 text-xs text-gray-600"><i class="fa-solid fa-calendar text-xs"></i>近30天</button>
+          </div>
+          <!-- Record Cards -->
+          <div class="space-y-3">
+            <div class="bg-white rounded-xl p-4 shadow-sm">
+              <div class="flex items-center justify-between mb-2"><span class="text-xs text-gray-400">2026-03-28 14:20</span><span class="bg-emerald-50 text-emerald-500 text-[10px] px-2 py-0.5 rounded-full">HW-V6000</span></div>
+              <div class="grid grid-cols-3 gap-3">
+                <div><p class="text-[10px] text-gray-400">BMI</p><p class="text-sm font-bold text-gray-900">24.8<span class="text-[10px] text-gray-400 ml-0.5">kg/m²</span></p></div>
+                <div><p class="text-[10px] text-gray-400">血压</p><p class="text-sm font-bold text-red-500">145/92</p></div>
+                <div><p class="text-[10px] text-gray-400">心率</p><p class="text-sm font-bold text-gray-900">72<span class="text-[10px] text-gray-400 ml-0.5">次/分</span></p></div>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl p-4 shadow-sm">
+              <div class="flex items-center justify-between mb-2"><span class="text-xs text-gray-400">2026-03-15 09:40</span><span class="bg-emerald-50 text-emerald-500 text-[10px] px-2 py-0.5 rounded-full">HW-V6000</span></div>
+              <div class="grid grid-cols-3 gap-3">
+                <div><p class="text-[10px] text-gray-400">BMI</p><p class="text-sm font-bold text-gray-900">24.5<span class="text-[10px] text-gray-400 ml-0.5">kg/m²</span></p></div>
+                <div><p class="text-[10px] text-gray-400">血压</p><p class="text-sm font-bold text-orange-500">138/88</p></div>
+                <div><p class="text-[10px] text-gray-400">心率</p><p class="text-sm font-bold text-gray-900">75<span class="text-[10px] text-gray-400 ml-0.5">次/分</span></p></div>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl p-4 shadow-sm">
+              <div class="flex items-center justify-between mb-2"><span class="text-xs text-gray-400">2026-02-20 11:10</span><span class="bg-emerald-50 text-emerald-500 text-[10px] px-2 py-0.5 rounded-full">HW-V6000</span></div>
+              <div class="grid grid-cols-3 gap-3">
+                <div><p class="text-[10px] text-gray-400">BMI</p><p class="text-sm font-bold text-gray-900">25.1<span class="text-[10px] text-gray-400 ml-0.5">kg/m²</span></p></div>
+                <div><p class="text-[10px] text-gray-400">血压</p><p class="text-sm font-bold text-red-500">142/90</p></div>
+                <div><p class="text-[10px] text-gray-400">心率</p><p class="text-sm font-bold text-gray-900">70<span class="text-[10px] text-gray-400 ml-0.5">次/分</span></p></div>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl p-4 shadow-sm">
+              <div class="flex items-center justify-between mb-2"><span class="text-xs text-gray-400">2026-01-15 14:55</span><span class="bg-emerald-50 text-emerald-500 text-[10px] px-2 py-0.5 rounded-full">HW-V7000</span></div>
+              <div class="grid grid-cols-3 gap-3">
+                <div><p class="text-[10px] text-gray-400">BMI</p><p class="text-sm font-bold text-gray-900">25.3<span class="text-[10px] text-gray-400 ml-0.5">kg/m²</span></p></div>
+                <div><p class="text-[10px] text-gray-400">血压</p><p class="text-sm font-bold text-red-500">140/91</p></div>
+                <div><p class="text-[10px] text-gray-400">心率</p><p class="text-sm font-bold text-gray-900">68<span class="text-[10px] text-gray-400 ml-0.5">次/分</span></p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-4 pb-6 pt-2"><div class="flex justify-around"><div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-house text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">首页</span></div><div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-clipboard-list text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">记录</span></div><div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-stethoscope text-gray-400 text-lg"></i><span class="text-[10px] text-gray-400">辨识</span></div><div class="flex flex-col items-center gap-0.5"><i class="fa-solid fa-user text-emerald-500 text-lg"></i><span class="text-[10px] text-emerald-500 font-medium">我的</span></div></div></div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">6.3 我的记录页</p>
+    </div>
+
+    <!-- 6.4 编辑个人信息 -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-white rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-700 text-xs font-medium"><span>16:38</span><div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div></div>
+        <div class="flex items-center px-4 h-11 bg-white border-b border-gray-100"><button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-chevron-left text-gray-600"></i></button><span class="flex-1 text-center font-semibold text-base text-gray-900">编辑个人信息</span><button class="w-11 h-11 flex items-center justify-center text-emerald-500 text-sm font-medium">保存</button></div>
+        <div class="px-6 pt-6">
+          <!-- Avatar -->
+          <div class="flex flex-col items-center mb-8">
+            <div class="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mb-2 relative"><i class="fa-solid fa-user text-emerald-400 text-3xl"></i><div class="absolute -bottom-0.5 -right-0.5 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center border-2 border-white"><i class="fa-solid fa-camera text-white text-[8px]"></i></div></div>
+            <span class="text-xs text-emerald-500">修改头像</span>
+          </div>
+          <!-- Form -->
+          <div class="space-y-5">
+            <div><label class="text-xs text-gray-500 mb-1.5 block">姓名</label><div class="flex items-center bg-gray-50 rounded-lg px-4 h-12 border border-gray-200 focus-within:border-emerald-400 transition-colors"><i class="fa-solid fa-user text-gray-400 mr-3 text-sm"></i><span class="text-sm text-gray-800">张晓明</span><i class="fa-solid fa-pen text-gray-300 text-xs ml-auto"></i></div></div>
+            <div><label class="text-xs text-gray-500 mb-1.5 block">性别</label><div class="flex gap-3"><div class="flex-1 h-12 bg-emerald-50 border-2 border-emerald-400 rounded-lg flex items-center justify-center gap-2"><i class="fa-solid fa-mars text-emerald-500"></i><span class="text-sm font-medium text-emerald-600">男</span></div><div class="flex-1 h-12 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center gap-2"><i class="fa-solid fa-venus text-gray-400"></i><span class="text-sm text-gray-500">女</span></div></div></div>
+            <div><label class="text-xs text-gray-500 mb-1.5 block">年龄</label><div class="flex items-center bg-gray-50 rounded-lg px-4 h-12 border border-gray-200"><i class="fa-solid fa-calendar text-gray-400 mr-3 text-sm"></i><span class="text-sm text-gray-800">45</span><span class="text-sm text-gray-400 ml-1">岁</span><i class="fa-solid fa-pen text-gray-300 text-xs ml-auto"></i></div></div>
+            <div><label class="text-xs text-gray-500 mb-1.5 block">手机号</label><div class="flex items-center bg-gray-50 rounded-lg px-4 h-12 border border-gray-200"><i class="fa-solid fa-phone text-gray-400 mr-3 text-sm"></i><span class="text-sm text-gray-800">138****5678</span><span class="ml-auto text-xs text-emerald-500 font-medium">更换手机号</span></div></div>
+            <div><label class="text-xs text-gray-500 mb-1.5 block">身份证号</label><div class="flex items-center bg-gray-50 rounded-lg px-4 h-12 border border-gray-200"><i class="fa-solid fa-id-card text-gray-400 mr-3 text-sm"></i><span class="text-sm text-gray-400">110105198001****（实名认证后不可修改）</span></div></div>
+          </div>
+          <!-- Save Button -->
+          <button class="w-full h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold rounded-lg shadow-lg shadow-emerald-200 text-base mt-8">保存修改</button>
+          <p class="text-center text-xs text-gray-400 mt-3">实名认证信息修改请联系客服</p>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">6.4 编辑个人信息</p>
+    </div>
+  </div>
+</section>
+
+<!-- ################################################################ -->
+<!-- ================ 模块3续：历史数据趋势 ================ -->
+<!-- ################################################################ -->
+<section id="mod-trend" class="mb-16 scroll-mt-20">
+  <div class="mb-6">
+    <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2"><i class="fa-solid fa-chart-line text-primary-500"></i>3.4 历史数据趋势</h2>
+    <p class="text-sm text-gray-500 mt-1">体脂数据多维度趋势图表，支持指标切换和时间范围筛选</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- 3.4 历史数据趋势 -->
+    <div class="flex flex-col items-center">
+      <div class="w-[375px] h-[812px] bg-gray-50 rounded-[3rem] shadow-2xl overflow-hidden relative border-[8px] border-gray-800">
+        <div class="flex justify-between items-center px-8 pt-3 text-gray-700 text-xs font-medium"><span>15:58</span><div class="flex items-center gap-1"><i class="fa-solid fa-signal"></i><span class="text-[10px]">5G</span><i class="fa-solid fa-battery-three-quarters"></i></div></div>
+        <div class="flex items-center px-4 h-11 bg-white shadow-sm"><button class="w-11 h-11 flex items-center justify-center"><i class="fa-solid fa-chevron-left text-gray-600"></i></button><span class="flex-1 text-center font-semibold text-base text-gray-900">历史数据趋势</span><div class="w-11"></div></div>
+        <div class="px-5 pt-4">
+          <!-- Indicator Selector -->
+          <div class="flex gap-2 mb-4 overflow-x-auto">
+            <button class="px-3 py-1.5 bg-emerald-500 text-white text-xs rounded-full font-medium whitespace-nowrap">血压</button>
+            <button class="px-3 py-1.5 bg-white text-gray-600 text-xs rounded-full border border-gray-200 whitespace-nowrap">BMI</button>
+            <button class="px-3 py-1.5 bg-white text-gray-600 text-xs rounded-full border border-gray-200 whitespace-nowrap">心率</button>
+            <button class="px-3 py-1.5 bg-white text-gray-600 text-xs rounded-full border border-gray-200 whitespace-nowrap">血氧</button>
+            <button class="px-3 py-1.5 bg-white text-gray-600 text-xs rounded-full border border-gray-200 whitespace-nowrap">体温</button>
+          </div>
+          <!-- Time Range -->
+          <div class="flex bg-gray-100 rounded-lg p-0.5 mb-4">
+            <button class="flex-1 py-1.5 text-[10px] text-gray-400 text-center">日</button>
+            <button class="flex-1 py-1.5 text-[10px] text-gray-400 text-center">周</button>
+            <button class="flex-1 py-1.5 text-[10px] bg-white rounded-md shadow-sm text-emerald-600 font-semibold text-center">月</button>
+            <button class="flex-1 py-1.5 text-[10px] text-gray-400 text-center">年</button>
+          </div>
+          <!-- Chart Card -->
+          <div class="bg-white rounded-xl p-4 shadow-sm mb-4">
+            <div class="flex items-center justify-between mb-1"><p class="text-sm font-semibold text-gray-900">收缩压趋势</p><span class="text-[10px] text-gray-400">近6个月</span></div>
+            <p class="text-[10px] text-gray-400 mb-3">参考范围：90~140 mmHg</p>
+            <div class="h-32 relative">
+              <div class="absolute top-[25%] left-0 right-0 h-px border-t border-dashed border-red-200"></div>
+              <svg viewBox="0 0 300 100" class="w-full h-full"><rect x="0" y="25" width="300" height="40" fill="rgba(16,185,129,0.05)" rx="2"/><text x="2" y="23" fill="#EF4444" font-size="7" opacity="0.5">140</text><text x="2" y="68" fill="#10B981" font-size="7" opacity="0.5">90</text><polyline fill="none" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="25,30 75,35 125,20 175,28 225,15 275,18"/><circle cx="275" cy="18" r="4" fill="#EF4444"/><text x="275" y="12" text-anchor="middle" fill="#EF4444" font-size="8" font-weight="bold">145</text><text x="25" y="95" text-anchor="middle" fill="#9CA3AF" font-size="7">10月</text><text x="75" y="95" text-anchor="middle" fill="#9CA3AF" font-size="7">11月</text><text x="125" y="95" text-anchor="middle" fill="#9CA3AF" font-size="7">12月</text><text x="175" y="95" text-anchor="middle" fill="#9CA3AF" font-size="7">1月</text><text x="225" y="95" text-anchor="middle" fill="#9CA3AF" font-size="7">2月</text><text x="275" y="95" text-anchor="middle" fill="#9CA3AF" font-size="7">3月</text></svg>
+            </div>
+          </div>
+          <!-- Diastolic Pressure -->
+          <div class="bg-white rounded-xl p-4 shadow-sm mb-4">
+            <div class="flex items-center justify-between mb-1"><p class="text-sm font-semibold text-gray-900">舒张压趋势</p><span class="text-[10px] text-gray-400">近6个月</span></div>
+            <p class="text-[10px] text-gray-400 mb-3">参考范围：60~90 mmHg</p>
+            <div class="h-24">
+              <svg viewBox="0 0 300 80" class="w-full h-full"><rect x="0" y="20" width="300" height="30" fill="rgba(16,185,129,0.05)" rx="2"/><polyline fill="none" stroke="#F97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="25,25 75,22 125,30 175,18 225,15 275,12"/><circle cx="275" cy="12" r="4" fill="#F97316"/><text x="275" y="8" text-anchor="middle" fill="#F97316" font-size="8" font-weight="bold">92</text><text x="25" y="72" text-anchor="middle" fill="#9CA3AF" font-size="7">10月</text><text x="125" y="72" text-anchor="middle" fill="#9CA3AF" font-size="7">12月</text><text x="225" y="72" text-anchor="middle" fill="#9CA3AF" font-size="7">2月</text></svg>
+            </div>
+          </div>
+          <!-- Stats Summary -->
+          <div class="bg-white rounded-xl p-4 shadow-sm">
+            <p class="text-sm font-semibold text-gray-900 mb-3">统计概览</p>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="text-center"><p class="text-[10px] text-gray-400 mb-1">平均收缩压</p><p class="text-lg font-bold text-red-500">141</p><p class="text-[10px] text-gray-400">mmHg</p></div>
+              <div class="text-center"><p class="text-[10px] text-gray-400 mb-1">最高值</p><p class="text-lg font-bold text-red-600">148</p><p class="text-[10px] text-gray-400">mmHg</p></div>
+              <div class="text-center"><p class="text-[10px] text-gray-400 mb-1">最低值</p><p class="text-lg font-bold text-green-500">132</p><p class="text-[10px] text-gray-400">mmHg</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-sm font-medium text-gray-600">3.4 历史数据趋势页</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Navigation highlight script -->
+<script>
+function switchHomeTab(btn) {
+  document.querySelectorAll('.home-tab-btn').forEach(b => {
+    b.querySelector('span').className = 'text-[15px] font-normal text-gray-400';
+    b.querySelector('.tab-indicator').className = 'tab-indicator w-5 h-[3px] rounded-full bg-transparent';
+  });
+  btn.querySelector('span').className = 'text-[15px] font-bold text-gray-900';
+  btn.querySelector('.tab-indicator').className = 'tab-indicator w-5 h-[3px] rounded-full bg-emerald-500';
+  document.querySelectorAll('.home-tab-content').forEach(c => c.classList.add('hidden'));
+  document.getElementById(btn.dataset.tab).classList.remove('hidden');
+}
+document.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
+  navLinks.forEach(l => {
+    l.classList.remove('bg-primary-500','text-white','shadow-md');
+    if(l.getAttribute('href') === '#' + current) l.classList.add('bg-primary-500','text-white','shadow-md');
+  });
+});
+</script>
+
+<!-- ========== PATIENT DEMO OVERLAY ========== -->
+<style>
+  #demoOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #demoOverlay.active { display: flex; }
+  #demoOverlay .demo-phone {
+    width: 375px;
+    height: 812px;
+    background: #fff;
+    border-radius: 3rem;
+    box-shadow: 0 0 0 8px #1f2937, 0 0 60px rgba(59,130,246,0.3), 0 25px 80px rgba(0,0,0,0.5);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease;
+  }
+  #demoOverlay .demo-phone.slide-left {
+    transform: translateX(-120px) scale(0.92);
+    opacity: 0;
+  }
+  #demoOverlay .demo-phone.slide-right {
+    transform: translateX(120px) scale(0.92);
+    opacity: 0;
+  }
+  /* Flow breadcrumb bar */
+  .demo-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 999px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    max-width: 600px;
+    overflow-x: auto;
+  }
+  .demo-breadcrumb::-webkit-scrollbar { display: none; }
+  .demo-breadcrumb span {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    white-space: nowrap;
+    padding: 4px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .demo-breadcrumb span:hover { color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
+  .demo-breadcrumb span.active {
+    color: #fff;
+    background: rgba(59,130,246,0.5);
+    font-weight: 600;
+  }
+  .demo-breadcrumb .sep {
+    color: rgba(255,255,255,0.15);
+    font-size: 10px;
+    padding: 0;
+    cursor: default;
+  }
+  .demo-breadcrumb .sep:hover { background: none; color: rgba(255,255,255,0.15); }
+  /* Close and info bar */
+  .demo-topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    z-index: 10;
+  }
+  .demo-topbar .demo-title {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .demo-topbar .demo-title i { color: #60a5fa; }
+  .demo-close {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    backdrop-filter: blur(8px);
+  }
+  .demo-close:hover { background: rgba(239,68,68,0.3); border-color: rgba(239,68,68,0.5); }
+  /* Screen label */
+  .demo-screen-label {
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    margin-top: 16px;
+    text-align: center;
+    font-weight: 500;
+  }
+  /* Hotspot indicators */
+  .demo-phone [data-nav] {
+    cursor: pointer !important;
+    position: relative;
+    transition: all 0.15s;
+  }
+  .demo-phone [data-nav]:hover {
+    filter: brightness(0.96);
+    transform: scale(1.01);
+  }
+  .demo-phone [data-nav]::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+    pointer-events: none;
+  }
+  .demo-phone [data-nav]:hover::after {
+    border-color: rgba(59,130,246,0.4);
+  }
+  /* Floating button */
+  #demoBtn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    height: 52px;
+    padding: 0 24px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 32px rgba(59,130,246,0.4), 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+    font-family: inherit;
+  }
+  #demoBtn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 12px 40px rgba(59,130,246,0.5), 0 4px 12px rgba(0,0,0,0.15);
+  }
+  #demoBtn .pulse-dot {
+    width: 8px; height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+    animation: pulse-demo 2s infinite;
+  }
+  @keyframes pulse-demo {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+  /* Side panel: quick jump */
+  .demo-side-panel {
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 10;
+  }
+  .demo-side-panel button {
+    width: auto;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.4);
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    white-space: nowrap;
+    font-family: inherit;
+    backdrop-filter: blur(4px);
+  }
+  .demo-side-panel button:hover {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.8);
+  }
+  .demo-side-panel button.active {
+    background: rgba(59,130,246,0.2);
+    color: #93c5fd;
+    border-color: rgba(59,130,246,0.3);
+    font-weight: 600;
+  }
+  .demo-side-panel .panel-group-label {
+    font-size: 9px;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 8px 12px 2px;
+    font-weight: 600;
+  }
+  /* Right side: flow diagram */
+  .demo-flow-hint {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: flex-end;
+  }
+  .demo-flow-hint .flow-arrow {
+    color: rgba(255,255,255,0.15);
+    font-size: 10px;
+  }
+  .demo-flow-hint .flow-node {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .demo-flow-hint .flow-node:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
+  .demo-flow-hint .flow-node.current {
+    background: rgba(59,130,246,0.15);
+    color: #93c5fd;
+    border-color: rgba(59,130,246,0.25);
+  }
+</style>
+
+<!-- Demo Overlay HTML -->
+<div id="demoOverlay">
+  <div class="demo-topbar">
+    <div class="demo-title"><i class="fa-solid fa-mobile-screen"></i>患者端交互演示</div>
+    <button class="demo-close" onclick="demoExit()" title="退出演示"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+
+  <!-- Side Panel: Quick Jump -->
+  <div class="demo-side-panel" id="demoSidePanel"></div>
+
+  <!-- Flow Hint (right side) -->
+  <div class="demo-flow-hint" id="demoFlowHint"></div>
+
+  <!-- Breadcrumb -->
+  <div class="demo-breadcrumb" id="demoBreadcrumb"></div>
+
+  <!-- Phone Frame -->
+  <div class="demo-phone" id="demoPhone"></div>
+
+  <!-- Screen Label -->
+  <div class="demo-screen-label" id="demoLabel"></div>
+</div>
+
+<!-- Floating Demo Button -->
+<button id="demoBtn" onclick="demoStart()">
+  <div class="pulse-dot"></div>
+  <i class="fa-solid fa-play"></i>
+  患者端演示
+</button>
+
+<script>
+// ===== Patient-side Interactive Demo System =====
+(function() {
+  // --- Screen Definitions ---
+  // Each screen: { id, captionMatch, label, group }
+  // captionMatch is used to find the phone frame in the DOM by its caption text
+  const SCREENS = [
+    { id: 'login',        captionMatch: '1.1',  label: '登录页',       group: '登录注册' },
+    { id: 'register',     captionMatch: '1.2',  label: '注册页',       group: '登录注册' },
+    { id: 'home-basic',   captionMatch: '2.1',  label: '首页·基础指标', group: '健康档案' },
+    { id: 'home-body',    captionMatch: '2.2',  label: '首页·体成分',   group: '健康档案' },
+    { id: 'home-special', captionMatch: '2.3',  label: '首页·专项指标', group: '健康档案' },
+    { id: 'home-empty',   captionMatch: '2.4',  label: '首页·空态',    group: '健康档案' },
+    { id: 'body-basic',   captionMatch: '3.1',  label: '基础体征',     group: '体脂数据' },
+    { id: 'body-comp',    captionMatch: '3.2',  label: '体成分分析',   group: '体脂数据' },
+    { id: 'body-special', captionMatch: '3.3',  label: '专项检测',     group: '体脂数据' },
+    { id: 'const-entry',  captionMatch: '4.1',  label: '辨识入口',     group: '九体辨识' },
+    { id: 'const-result', captionMatch: '4.2',  label: '辨识结果',     group: '九体辨识' },
+    { id: 'const-hist',   captionMatch: '4.3',  label: '历史对比',     group: '九体辨识' },
+
+    { id: 'report-list',  captionMatch: '5.1',  label: '报告列表',     group: '健康报告' },
+    { id: 'report-detail',captionMatch: '5.2',  label: '报告详情',     group: '健康报告' },
+    { id: 'profile',      captionMatch: '6.1',  label: '个人中心',     group: '个人中心' },
+    { id: 'doctor-chat',  captionMatch: '6.2',  label: '咨询医师',     group: '个人中心' },
+    { id: 'records',      captionMatch: '6.3',  label: '我的记录',     group: '个人中心' },
+    { id: 'edit-profile', captionMatch: '6.4',  label: '编辑信息',     group: '个人中心' },
+    { id: 'trend',        captionMatch: '3.4',  label: '历史趋势',     group: '体脂数据' },
+  ];
+
+  // --- Navigation Map ---
+  // Defines clickable hotspots within each screen and their target screen
+  const NAV_MAP = {
+    'login': [
+      { selector: 'button:has-text("登 录")',          target: 'home-basic', type: 'btn-gradient' },
+      { selector: 'text:has-text("立即注册")',          target: 'register' },
+      { selector: 'button:has-text("微信登录"), .fa-weixin', target: 'home-basic' },
+    ],
+    'register': [
+      { selector: 'button:has-text("完成注册")',        target: 'home-basic' },
+      { selector: '.fa-chevron-left',                   target: 'login', type: 'back' },
+    ],
+    'home-basic': [
+      { selector: 'text:has-text("体脂数据")',          target: 'body-basic' },
+      { selector: 'text:has-text("体质辨识")',          target: 'const-entry' },
+      { selector: 'text:has-text("健康报告")',          target: 'report-list' },
+      { selector: 'card:notification',                  target: 'report-detail' },
+      { selector: 'tab:体成分指标',                     target: 'home-body' },
+      { selector: 'tab:专项指标',                       target: 'home-special' },
+      { selector: 'bottomtab:记录',                     target: 'report-list' },
+      { selector: 'bottomtab:辨识',                     target: 'const-entry' },
+      { selector: 'bottomtab:我的',                     target: 'profile' },
+    ],
+    'home-body': [
+      { selector: 'text:has-text("体脂数据")',          target: 'body-comp' },
+      { selector: 'text:has-text("体质辨识")',          target: 'const-entry' },
+      { selector: 'text:has-text("健康报告")',          target: 'report-list' },
+      { selector: 'card:notification',                  target: 'report-detail' },
+      { selector: 'tab:基础指标',                       target: 'home-basic' },
+      { selector: 'tab:专项指标',                       target: 'home-special' },
+      { selector: 'bottomtab:记录',                     target: 'report-list' },
+      { selector: 'bottomtab:辨识',                     target: 'const-entry' },
+      { selector: 'bottomtab:我的',                     target: 'profile' },
+    ],
+    'home-special': [
+      { selector: 'text:has-text("体脂数据")',          target: 'body-special' },
+      { selector: 'text:has-text("体质辨识")',          target: 'const-entry' },
+      { selector: 'text:has-text("健康报告")',          target: 'report-list' },
+      { selector: 'card:notification',                  target: 'report-detail' },
+      { selector: 'tab:基础指标',                       target: 'home-basic' },
+      { selector: 'tab:体成分指标',                     target: 'home-body' },
+      { selector: 'bottomtab:记录',                     target: 'report-list' },
+      { selector: 'bottomtab:辨识',                     target: 'const-entry' },
+      { selector: 'bottomtab:我的',                     target: 'profile' },
+    ],
+    'home-empty': [
+      { selector: 'button:has-text("开始体质辨识")',    target: 'const-entry' },
+      { selector: 'bottomtab:记录',                     target: 'report-list' },
+      { selector: 'bottomtab:辨识',                     target: 'const-entry' },
+      { selector: 'bottomtab:我的',                     target: 'profile' },
+    ],
+    'body-basic': [
+      { selector: '.fa-chevron-left',                   target: 'home-basic', type: 'back' },
+    ],
+    'body-comp': [
+      { selector: '.fa-chevron-left',                   target: 'home-body', type: 'back' },
+    ],
+    'body-special': [
+      { selector: '.fa-chevron-left',                   target: 'home-special', type: 'back' },
+    ],
+    'const-entry': [
+      { selector: 'button:has-text("开始辨识")',        target: 'const-result' },
+      { selector: '.fa-chevron-left',                   target: 'home-basic', type: 'back' },
+    ],
+
+    'const-result': [
+      { selector: '.fa-chevron-left',                   target: 'const-entry', type: 'back' },
+      { selector: '.fa-share-nodes',                    target: 'const-hist' },
+    ],
+    'const-hist': [
+      { selector: '.fa-chevron-left',                   target: 'const-result', type: 'back' },
+    ],
+    'report-list': [
+      { selector: 'card:report-green',                  target: 'report-detail' },
+      { selector: 'card:report-orange',                 target: 'report-detail' },
+      { selector: 'card:report-blue',                   target: 'report-detail' },
+      { selector: '.fa-chevron-left',                   target: 'home-basic', type: 'back' },
+      { selector: 'bottomtab:首页',                     target: 'home-basic' },
+      { selector: 'bottomtab:辨识',                     target: 'const-entry' },
+      { selector: 'bottomtab:我的',                     target: 'profile' },
+    ],
+    'report-detail': [
+      { selector: '.fa-chevron-left',                   target: 'report-list', type: 'back' },
+    ],
+    'profile': [
+      { selector: 'text:has-text("我的记录")',          target: 'records' },
+      { selector: 'text:has-text("咨询医师")',          target: 'doctor-chat' },
+      { selector: '.fa-pen',                            target: 'edit-profile' },
+      { selector: 'bottomtab:首页',                     target: 'home-basic' },
+      { selector: 'bottomtab:记录',                     target: 'report-list' },
+      { selector: 'bottomtab:辨识',                     target: 'const-entry' },
+    ],
+    'doctor-chat': [
+      { selector: '.fa-chevron-left',                   target: 'profile', type: 'back' },
+    ],
+    'records': [
+      { selector: '.fa-chevron-left',                   target: 'profile', type: 'back' },
+      { selector: 'bottomtab:首页',                     target: 'home-basic' },
+      { selector: 'bottomtab:辨识',                     target: 'const-entry' },
+    ],
+    'edit-profile': [
+      { selector: '.fa-chevron-left',                   target: 'profile', type: 'back' },
+    ],
+    'trend': [
+      { selector: '.fa-chevron-left',                   target: 'body-basic', type: 'back' },
+    ],
+  };
+
+  // --- State ---
+  let screenElements = {};  // id -> original DOM element
+  let currentScreen = null;
+  let history = [];
+  let isActive = false;
+
+  // --- Discover screens from DOM ---
+  function discoverScreens() {
+    // Find all phone frames by looking for divs with class w-[375px] h-[812px]
+    // and their adjacent caption <p> tags
+    const allPhones = document.querySelectorAll('main .w-\\[375px\\].h-\\[812px\\]');
+    allPhones.forEach(phone => {
+      // Find the caption paragraph (sibling after closing div, inside the flex-col wrapper)
+      const wrapper = phone.parentElement;
+      if (!wrapper) return;
+      const caption = wrapper.querySelector('p.mt-3');
+      if (!caption) return;
+      const txt = caption.textContent.trim();
+
+      // Match to our screen definitions
+      for (const screen of SCREENS) {
+        if (txt.startsWith(screen.captionMatch + ' ') || txt.startsWith(screen.captionMatch + '　')) {
+          screenElements[screen.id] = phone;
+          break;
+        }
+      }
+    });
+  }
+
+  // --- Build Side Panel ---
+  function buildSidePanel() {
+    const panel = document.getElementById('demoSidePanel');
+    panel.innerHTML = '';
+    let lastGroup = '';
+    SCREENS.forEach(s => {
+      if (s.group !== lastGroup) {
+        const lbl = document.createElement('div');
+        lbl.className = 'panel-group-label';
+        lbl.textContent = s.group;
+        panel.appendChild(lbl);
+        lastGroup = s.group;
+      }
+      const btn = document.createElement('button');
+      btn.textContent = s.label;
+      btn.dataset.screen = s.id;
+      btn.onclick = () => navigateTo(s.id);
+      panel.appendChild(btn);
+    });
+  }
+
+  // --- Update Side Panel Active State ---
+  function updateSidePanel(screenId) {
+    document.querySelectorAll('#demoSidePanel button').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.screen === screenId);
+    });
+  }
+
+  // --- Build Flow Hints (right side) ---
+  function updateFlowHints(screenId) {
+    const hint = document.getElementById('demoFlowHint');
+    hint.innerHTML = '';
+
+    // Determine available forward/next screens from NAV_MAP
+    const navs = NAV_MAP[screenId] || [];
+    const targets = [...new Set(navs.filter(n => n.type !== 'back').map(n => n.target))];
+    const backTargets = [...new Set(navs.filter(n => n.type === 'back').map(n => n.target))];
+
+    // Show back target
+    if (backTargets.length > 0) {
+      const label = SCREENS.find(s => s.id === backTargets[0]);
+      if (label) {
+        const node = document.createElement('div');
+        node.className = 'flow-node';
+        node.innerHTML = '<i class="fa-solid fa-arrow-left" style="font-size:8px;margin-right:4px;opacity:0.5"></i>' + label.label;
+        node.onclick = () => navigateTo(backTargets[0], 'back');
+        hint.appendChild(node);
+
+        const arrow = document.createElement('div');
+        arrow.className = 'flow-arrow';
+        arrow.textContent = '↑ 返回';
+        hint.appendChild(arrow);
+      }
+    }
+
+    // Current
+    const curr = SCREENS.find(s => s.id === screenId);
+    if (curr) {
+      const node = document.createElement('div');
+      node.className = 'flow-node current';
+      node.textContent = '● ' + curr.label;
+      hint.appendChild(node);
+    }
+
+    // Forward targets (max 4)
+    targets.slice(0, 4).forEach(t => {
+      const label = SCREENS.find(s => s.id === t);
+      if (label) {
+        const arrow = document.createElement('div');
+        arrow.className = 'flow-arrow';
+        arrow.textContent = '↓';
+        hint.appendChild(arrow);
+
+        const node = document.createElement('div');
+        node.className = 'flow-node';
+        node.innerHTML = label.label + ' <i class="fa-solid fa-arrow-right" style="font-size:8px;margin-left:4px;opacity:0.5"></i>';
+        node.onclick = () => navigateTo(t);
+        hint.appendChild(node);
+      }
+    });
+  }
+
+  // --- Update Breadcrumb ---
+  function updateBreadcrumb() {
+    const bc = document.getElementById('demoBreadcrumb');
+    bc.innerHTML = '';
+    const trail = [...history, currentScreen];
+    // Show last 5 items
+    const visible = trail.slice(-5);
+    if (trail.length > 5) {
+      const dots = document.createElement('span');
+      dots.textContent = '···';
+      dots.style.cursor = 'default';
+      bc.appendChild(dots);
+      const sep = document.createElement('span');
+      sep.className = 'sep';
+      sep.textContent = '›';
+      bc.appendChild(sep);
+    }
+    visible.forEach((sid, i) => {
+      const screen = SCREENS.find(s => s.id === sid);
+      if (!screen) return;
+      const span = document.createElement('span');
+      span.textContent = screen.label;
+      if (i === visible.length - 1) {
+        span.classList.add('active');
+      } else {
+        span.onclick = () => {
+          // Navigate back to this point
+          const idx = history.indexOf(sid);
+          if (idx >= 0) {
+            history = history.slice(0, idx);
+            navigateTo(sid, 'back');
+          }
+        };
+      }
+      bc.appendChild(span);
+      if (i < visible.length - 1) {
+        const sep = document.createElement('span');
+        sep.className = 'sep';
+        sep.textContent = '›';
+        bc.appendChild(sep);
+      }
+    });
+  }
+
+  // --- Render Screen into Demo Phone ---
+  function renderScreen(screenId, direction) {
+    const phone = document.getElementById('demoPhone');
+    const src = screenElements[screenId];
+    if (!src) return;
+
+    // Transition animation
+    const slideClass = direction === 'back' ? 'slide-right' : 'slide-left';
+    phone.classList.add(slideClass);
+
+    setTimeout(() => {
+      // Clone the screen content
+      phone.innerHTML = '';
+      const content = src.cloneNode(true);
+      // Remove border and shadow from clone (parent phone provides these)
+      content.style.border = 'none';
+      content.style.boxShadow = 'none';
+      content.style.borderRadius = '0';
+      content.style.width = '100%';
+      content.style.height = '100%';
+      phone.appendChild(content);
+
+      // Wire up navigation hotspots
+      wireNavigation(phone, screenId);
+
+      // Animate in from opposite direction
+      phone.classList.remove(slideClass);
+      phone.classList.add(direction === 'back' ? 'slide-left' : 'slide-right');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          phone.classList.remove('slide-left', 'slide-right');
+        });
+      });
+    }, direction ? 180 : 0);
+
+    // Update UI
+    const screen = SCREENS.find(s => s.id === screenId);
+    document.getElementById('demoLabel').textContent = screen ? `${screen.captionMatch} ${screen.label}` : '';
+    updateSidePanel(screenId);
+    updateFlowHints(screenId);
+    updateBreadcrumb();
+  }
+
+  // --- Wire Navigation Hotspots ---
+  function wireNavigation(container, screenId) {
+    const navs = NAV_MAP[screenId] || [];
+
+    navs.forEach(nav => {
+      let elements = [];
+
+      if (nav.selector.startsWith('button:has-text(')) {
+        const text = nav.selector.match(/"(.+?)"/)[1];
+        container.querySelectorAll('button').forEach(el => {
+          if (el.textContent.trim().includes(text)) elements.push(el);
+        });
+      }
+      else if (nav.selector.startsWith('text:has-text(')) {
+        const text = nav.selector.match(/"(.+?)"/)[1];
+        // Search in all text-containing elements
+        container.querySelectorAll('span, p, button, a').forEach(el => {
+          if (el.textContent.trim().includes(text) && el.children.length <= 2) {
+            elements.push(el);
+          }
+        });
+      }
+      else if (nav.selector.startsWith('.fa-')) {
+        const cls = nav.selector.substring(1);
+        container.querySelectorAll('.' + cls.replace('.', '\\.')).forEach(el => {
+          // For icon, make parent clickable
+          elements.push(el.closest('button') || el.parentElement || el);
+        });
+      }
+      else if (nav.selector.startsWith('tab:')) {
+        const tabText = nav.selector.substring(4);
+        container.querySelectorAll('button').forEach(el => {
+          const span = el.querySelector('span');
+          if (span && span.textContent.trim() === tabText) {
+            elements.push(el);
+          }
+        });
+      }
+      else if (nav.selector.startsWith('bottomtab:')) {
+        const tabText = nav.selector.substring(10);
+        // Bottom tab bar is in the absolute-positioned bottom div
+        const bottomBars = container.querySelectorAll('[class*="absolute"][class*="bottom-0"]');
+        bottomBars.forEach(bar => {
+          bar.querySelectorAll('span').forEach(span => {
+            if (span.textContent.trim() === tabText) {
+              elements.push(span.closest('div[class*="flex-col"]') || span.parentElement);
+            }
+          });
+        });
+      }
+      else if (nav.selector === 'card:notification') {
+        // The notification card with "新的健康报告"
+        container.querySelectorAll('p').forEach(p => {
+          if (p.textContent.includes('新的健康报告')) {
+            elements.push(p.closest('[class*="rounded-2xl"]') || p.closest('[class*="shadow"]') || p.parentElement);
+          }
+        });
+      }
+      else if (nav.selector.startsWith('card:report-')) {
+        // Report cards in the report list
+        const borderColors = {
+          'card:report-green': 'border-green',
+          'card:report-orange': 'border-orange',
+          'card:report-blue': 'border-blue',
+        };
+        const colorClass = borderColors[nav.selector] || '';
+        container.querySelectorAll('[class*="border-l-4"]').forEach(el => {
+          if (el.className.includes(colorClass)) elements.push(el);
+        });
+      }
+
+      // Attach navigation handlers
+      elements.forEach(el => {
+        el.setAttribute('data-nav', nav.target);
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          navigateTo(nav.target, nav.type === 'back' ? 'back' : 'forward');
+        }, { capture: true });
+      });
+    });
+  }
+
+  // --- Navigate to a Screen ---
+  window.navigateTo = function(screenId, direction) {
+    if (!screenElements[screenId]) return;
+    if (currentScreen && direction !== 'back') {
+      history.push(currentScreen);
+    } else if (direction === 'back' && history.length > 0) {
+      // If going back and the target is in history, trim history
+      const idx = history.lastIndexOf(screenId);
+      if (idx >= 0) {
+        history = history.slice(0, idx);
+      }
+    }
+    currentScreen = screenId;
+    renderScreen(screenId, direction || (history.length > 0 ? 'forward' : null));
+  };
+
+  // --- Start Demo ---
+  window.demoStart = function() {
+    if (Object.keys(screenElements).length === 0) discoverScreens();
+    buildSidePanel();
+    isActive = true;
+    history = [];
+    currentScreen = 'login';
+    document.getElementById('demoOverlay').classList.add('active');
+    document.getElementById('demoBtn').style.display = 'none';
+    document.body.style.overflow = 'hidden';
+    renderScreen('login', null);
+  };
+
+  // --- Exit Demo ---
+  window.demoExit = function() {
+    isActive = false;
+    document.getElementById('demoOverlay').classList.remove('active');
+    document.getElementById('demoBtn').style.display = 'flex';
+    document.body.style.overflow = '';
+  };
+
+  // --- Keyboard Navigation ---
+  document.addEventListener('keydown', (e) => {
+    if (!isActive) return;
+    if (e.key === 'Escape') {
+      demoExit();
+    } else if (e.key === 'Backspace' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      if (history.length > 0) {
+        const prev = history[history.length - 1];
+        navigateTo(prev, 'back');
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>
